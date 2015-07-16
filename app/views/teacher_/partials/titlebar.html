@@ -1,0 +1,21 @@
+
+
+<h3 class="ng-scope">
+   <!-- START Language list-->
+   
+   <div class="pull-right">Switch Child
+      <div class="btn-group" is-open="language.listIsOpen" dropdown="">
+         <button class="btn btn-default ng-binding" dropdown-toggle="" type="button" aria-haspopup="true" aria-expanded="false">English
+            <span class="caret"></span>
+         </button>  
+         <ul class="dropdown-menu dropdown-menu-right animated fadeInUpShort" role="menu">
+            <!-- ngRepeat: (localeId, langName) in language.available --><li ng-repeat="(localeId, langName) in language.available" class="ng-scope"><a href="#" ng-click="language.set(localeId, $event)" class="ng-binding">English</a>
+            </li><!-- end ngRepeat: (localeId, langName) in language.available --><li ng-repeat="(localeId, langName) in language.available" class="ng-scope"><a href="#" ng-click="language.set(localeId, $event)" class="ng-binding">Español</a>
+            </li><!-- end ngRepeat: (localeId, langName) in language.available -->
+         </ul>
+      </div>
+   </div>
+   <!-- END Language list    -->
+   Dashboard
+   <small class="ng-binding">Welcome to MyChild !</small>
+</h3>

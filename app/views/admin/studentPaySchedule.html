@@ -1,0 +1,94 @@
+
+<h4>Fee payment schedule for students</h4>
+
+<hr/>
+        
+  <div class="col-sm-5 {{}}" >
+         
+            <div class="form-group">
+               <label class="col-sm-5 control-label">Select Class {{  }}</label>
+             
+                         
+               <select  style="width: 20%;" class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+               
+               
+               
+            </div>
+       
+         
+            <div class="form-group">
+               <label class="col-sm-5 control-label">Select Fee {{  }}</label>
+             
+                         
+               <select  class="form-control" ng-model="selectedFee" ng-options="item.type.feesType for item in feeList" name="selectedClass">
+                      
+                  </select>
+               
+               
+               
+            </div>
+  
+      
+  </div>
+  <div class="table-responsive col-sm-12">
+          <hr/> 
+      <table id="table-ext-1" class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Picture</th>
+               <th>Name</th>
+               <th>Payment Scheme</th>
+             
+               
+            
+            </tr>
+         </thead>
+         <tbody>
+             <tr ng-repeat="student in selectedClass.student | orderBy : 'studentName'">
+               <td>{{ $index + 1 }}</td>
+                 
+                
+               <td>
+                  <div class="media">
+                     <img src="app/img/user/0{{$index+1}}.jpg" alt="Image" class="img-responsive img-circle" />
+                  </div>
+               </td>
+               <td> </td>
+               <td> 
+                   <div class="form-group">
+              
+               <div class="col-sm-10">
+                  <label class="radio-inline c-radio">
+                     <input type="radio" ng-checked="student.feeType == 'monthly'" value="option1" name="s{{ $index+1 }}" id="inlineradio1">
+                     <span class="fa fa-circle"></span>Monthly</label>
+                  <label class="radio-inline c-radio">
+                     <input type="radio" value="option3" ng-checked="student.feeType == 'quarterly'" name="s{{ $index+1 }}" id="inlineradio3">
+                     <span class="fa fa-circle"></span>Quarterly</label>
+                       <label class="radio-inline c-radio">
+                     <input type="radio" value="option4" name="s{{ $index+1 }}"  ng-checked="student.feeType == 'halfyearly'" id="inlineradio3">
+                     <span class="fa fa-circle"></span>Half Yearly</label>
+                     <label class="radio-inline c-radio">
+                     <input type="radio" value="option2" name="s{{ $index+1 }}" ng-checked="student.feeType ==  'yearly'"  id="inlineradio2">
+                     <span class="fa fa-circle"></span>Yearly</label>
+               </div>
+            </div>
+               </td>
+         
+ 
+         
+               
+               
+               
+               
+               
+            </tr>
+         
+         </tbody>
+      </table> 
+                
+      
+            </div>
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

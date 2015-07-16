@@ -1,0 +1,31 @@
+<div class="container-fluid" >
+ 
+   <!-- Export CSV Example-->
+   <div class="panel panel-default">
+      <div class="panel-heading">
+           
+          <button class="btn btn-default btn-sm" ng-click="loadTeacherTable()" type="button"> <span class="icon-reload"></span> Reload Table</button>
+          
+          <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+         
+      </div>
+       <input style="margin-left: 5px; width: 99%;" type="text" class="form-control"  placeholder="Search here" ng-model="search" >
+      <div class="table-responsive">
+          
+         <table ng-table="table.tableParams" export-csv="csv" class="table table-bordered table-striped {{ teacherListLoading }}">
+             
+            <tbody>
+                
+               <tr ng-repeat="teacher in $data | filter: search ">
+                  <td data-title="'Teacher ID'"  sortable="'teacherId'">{{teacher.teacherId}}</td>
+                  <td data-title="'Name'"  sortable="'teacherName'">{{teacher.teacherName}}</td>
+                  <td data-title="'Email id'">{{teacher.teacherEmailId}}</td>
+                  <td data-title="'Phone No'">{{teacher.phoneNo}}</td>
+                  <td data-title="''"> <a ui-sref="admin.Teachers.view({tid : teacher.teacherId})">View and edit</a> </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+  
+</div>

@@ -1,0 +1,216 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+App.controller('adminStudentControllers', ['$http','$filter',"$scope", "colors",'Student','ngTableParams','ngTableDataService','toaster','Grade','APISource','Upload', function($http,$filter,$scope, colors,Student,ngTableParams,ngTableDataService,toaster,Grade,APISource,Upload) {
+
+
+  $scope.folders = [
+    {name: 'Class-wise List',   folder: 'classlist',   alert: 0, icon: "icon-list" },
+    {name: 'Add new Student', folder: 'new', alert: 0, icon: "icon-user-follow" },
+    {name: 'Import from Excel',    folder: 'import',    alert: 0,  icon: "fa-upload" },
+    {name: 'Search Students',   folder: 'search',   alert: 0,  icon: "icon-magnifier" }
+    
+  ];
+
+  $scope.labels = [
+    {name: 'Red',     color: 'danger'},
+    {name: 'Pink',    color: 'pink'},
+    {name: 'Blue',    color: 'info'},
+    {name: 'Yellow',  color: 'warning'}
+  ];
+
+  $scope.mail = {
+    cc: false,
+    bcc: false
+  };
+  // Mailbox editr initial content
+  $scope.content = "<p>Type something..</p>";
+
+ $scope.filteredPeople='';
+
+
+/*
+ *  Student Classwise List Talble
+ */
+
+
+    
+    
+  'use strict';
+  // required for inner references
+  var vm = this;
+  $scope.dataLoad = 'whirl traditional'
+  var data
+  $scope.data = Student.query(function(){
+                                                          data = $scope.data
+                                                          
+                                                          vm.tableParams = new ngTableParams({
+                                                          page: 1,            // show first page
+                                                          count: 10           // count per page
+                                                      }, {
+                                                          total:  $scope.data.length, // length of data4
+                                                          getData: function($defer, params) {
+                                                              $defer.resolve( $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                                                          }
+                                                      });
+                                                   $scope.dataLoad ='';
+                                                  
+                                                    
+                                            } );
+
+
+    
+    $scope.DeleteRow=function(index) {
+     console.log("index::"+index)
+    $scope.data.splice(index,1);
+
+}
+/*
+ *  end classwise list table
+ */
+
+
+
+
+
+
+
+/*
+ * Upload
+ */
+
+
+
+
+/*
+ * End Upload
+ */
+
+
+
+
+
+
+/*
+ * 
+ * Add new student
+ */
+
+
+     $scope.newStudent = function(){
+       
+        $scope.classList = Grade.query( function(){
+                                                                                    $scope.selectedClass = $scope.classList[0];
+                                                                                   
+                                                                                }    
+                                                                                );
+         
+         
+     };
+     
+     $scope.saveStudent = function(values){
+         
+         var dob = values.dob;
+         console.log(dob.toString())
+         
+     };
+
+        /*
+         * 
+         * End of add new student
+         */
+
+    
+
+  $scope.studentList = function(){
+      
+      console.log("New fee")
+                                                                                $scope.classList = Grade.query(
+                                                                                function(){
+                                                                                   
+                                                                                                           $scope.selectedClass = $scope.classList[0];
+              vm.tableParams = new ngTableParams({
+                                                          page: 1,            // show first page
+                                                          count: 10           // count per page
+                                                      }, {
+                                                          total:  $scope.data.length, // length of data4
+                                                          getData: function($defer, params) {
+                                                              $defer.resolve( $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                                                          }
+                                                      });
+                                                   $scope.dataLoad ='';
+                                                                                });
+      
+  };
+
+
+
+
+
+//student search
+$scope.studetSearchCntrlr=function(){
+    Student.query(function(data){
+    $scope.students =data;
+    // console.log(JSON.stringify(data));
+   });
+  
+
+};
+
+$scope.view = function(student) {
+
+       $scope.studentDetail=student;
+        $("#myModal").modal('show');
+
+  };
+
+$scope.studetSearchCntrlr();
+
+
+
+/*
+ * Upload Excel
+ */
+console.log("Upload portion")
+$scope.upload = function (files,id) {                      
+                                                                console.log(id)
+                                                             
+                                                                if (files && files.length) {
+                                                                    for (var i = 0; i < files.length; i++) {
+                                                                        var file = files[i];
+                                                                        Upload.upload({
+                                                                            url: APISource.currentApiPoint+'/app/uploadData',
+                                                                            headers: { "X-Auth-Token": getLocalToken() },
+                                                                            data : {  'school_id' : id
+                                                                                       },
+                                                                            fields: {
+                                                                                
+
+                                                                            },
+                                                                            file: file 
+
+
+                                                                        }).progress(function (evt) {
+                                                                            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                                                                            $scope.log = 'progress: ' + progressPercentage + '% ' +
+                                                                                        evt.config.file.name + '\n' + $scope.log;
+                                                                        }).success(function (data, status, headers, config) {
+                                                                            $scope.log = 'file ' + config.file.name + '  uploaded. Response: ' + JSON.stringify(data) + '\n' ;
+                                                                            console.log(data)
+                                                                            $scope.$apply();
+                                                                        });
+                                                                    }
+                                                                }
+                                                            };   
+                                            
+                                            
+
+
+
+
+
+}]);

@@ -1,0 +1,67 @@
+<p>
+    <p>
+        
+  <div class="col-sm-5 {{classTeacherLoading}}" >
+         
+            <div class="form-group">
+               <label class="col-sm-5 control-label">Select Class {{  }}</label>
+             
+                         
+               <select class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+              
+                 
+             
+            </div>
+   </div>  
+    
+     <div class="col-sm-5 " >
+         
+            <div class="form-group">
+               <label class="col-sm-5 control-label"></label>
+             </div>
+   </div> 
+    
+    
+    <p>
+    <p>   
+
+    <div class="col-sm-12 " >
+                <h4>
+Subject and Teachers of class {{ selectedClass.gradeName }} {{ selectedClass.section }}
+</h4>
+        <div class="panel panel-default">
+      <div class="panel-heading">
+           
+          <button class="btn btn-default btn-sm" ng-click="classSubjectControllerFunction()" type="button"> <span class="icon-reload"></span> Reload Table</button>
+          
+          <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+         
+      </div>
+       <input style="margin-left: 5px; width: 99%;" type="text" class="form-control"  placeholder="Search here" ng-model="search" >
+        <div class="table-responsive">
+          
+         <table ng-table="table.tableParams" export-csv="csv" class="table table-bordered table-striped {{ subjectListLoading }}">
+             
+            <tbody>
+                
+               <tr ng-repeat="subject in selectedClass.subjectTeacherList | filter: search ">
+                
+                  <td data-title="'SubjectName'"  sortable="'subjectName'">{{subject.subject.subjectName}}</td>
+                   <td data-title="'Teacher'"  sortable="'subjectName'">{{subject.teacher.teacherName}}</td>
+                   
+                   <td data-title="''"><a href="javascript:void()" ng-click="$state.go('admin.Teachers.class_subjects')">edit</a> </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+        
+   
+    </div>    
+    </div>
+        
+ 
+
+    
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

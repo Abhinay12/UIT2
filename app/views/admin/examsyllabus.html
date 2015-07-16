@@ -1,0 +1,64 @@
+<h3></h3>
+<fieldset class="last-child">
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Select Exam</label>
+               <div class="col-sm-10">
+                   <select class="form-control" ng-model="selectedExam" ng-options="item.examName for item in examList" name="" >
+                      
+                  </select>
+                  <br>
+                
+               </div>
+             
+                
+            
+                
+                
+            </div>
+    
+                <div class="form-group">
+               <label class="col-sm-2 control-label">Select Subject</label>
+               <div class="col-sm-10">
+                   <select class="form-control" ng-model="selectedExamSubject" ng-options="item.subject.subjectName for item in selectedExam.examSchedule" name="" >
+                      
+                  </select>
+                  <br>
+                
+               </div>
+             
+                
+  
+                
+            </div>
+    
+   
+    
+    <div class="col-lg-12" ng-show="selectedExamSubject">
+     <hr/>
+      <!-- START panel-->
+      <div class="panel panel-default" id="panelDemo7">
+         <div class="panel-heading">Exam Syllabus for {{ selectedExam.examName }}<hr/></div>
+         <div class="panel-body">
+
+             <p>
+                 
+                 <span ng-show="editSyllabus">{{ selectedExamSubject.syllabus.syllabus  }}</span>
+                 
+                 <textarea  id="e" class="form-control" ng-show="!editSyllabus" placeholder="Enter exam syllabus here" ng-model="selectedExamSubject.syllabus.syllabus ">
+            
+                 
+             </p>
+             <hr/>
+                 
+             </textarea>
+             <hr/>
+             <a href="javascript:void(0)" ng-show="editSyllabus" ng-click="editSyllabus = !editSyllabus; ">Modify syllabus</a>
+             <a href="javascript:void(0)" ng-show="!editSyllabus"ng-click="updateSyllabus(selectedExamSubject.syllabus.id , selectedExamSubject.syllabus); editSyllabus = true " > Save changes </a>
+         </div>
+         <div class="panel-footer">Exam date : <strong> {{ selectedExamSubject.examDate | cmdate:'dd-MMM-yyyy'  }} </strong> from <strong>{{ selectedExamSubject.startTime }}</strong>  to <strong>{{ selectedExamSubject.endTime }} </strong>                </div>
+      </div>
+      <!-- END panel-->
+   </div>
+    
+    
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

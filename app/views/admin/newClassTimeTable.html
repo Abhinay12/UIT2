@@ -1,0 +1,117 @@
+<div class="col-md-12" ng-controller="addTimeTable">
+      <!-- START panel-->
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Add Timetable</h3>
+            <hr/>
+         </div>
+         <div class="panel-body">
+         
+             
+             <fieldset>
+                     <div class="form-group">
+                    
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                    <label class="col-sm-4 control-label">Choose class</label>
+                          <select class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                         </select>
+                            </div>   
+                            <div class="col-sm-6"> 
+                                    <label class="col-sm-4 control-label">Choose Day</label>
+                          <select class="form-control" ng-model="selectedDay" ng-options="item for item in days" name="selectedDay">
+                      
+                         </select>
+                            </div>  
+                     </div>
+                  </fieldset>
+             
+             
+              <ul>
+                <li ng-repeat="elemnt in timeTableElement">
+
+                    <div>
+                        <form class="form-inline ng-pristine" role="form">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" ng-model="elemnt.start" placeholder="Start time" id="input-email">
+                           
+                                   Start Time :
+                                   <select ng-model="s_hour" ng-change="elemnt.start=s_hour+':'+s_minute+':'+s_zone">
+                                       <option ng-repeat="h in hours" >{{h}}</option>
+                                   </select>
+                                    <select ng-model="s_minute" ng-change="elemnt.start=s_hour+':'+s_minute+':'+s_zone">
+                                       <option ng-repeat="h in minutes">{{h}}</option>
+                                   </select>
+                                   <select ng-model="s_zone" ng-change="elemnt.start=s_hour+':'+s_minute+':'+s_zone">
+                                       <option>AM</option>
+                                       <option>PM</option>
+                                   </select>
+                                   
+                                       </div>
+                                <div class="form-group">
+                                   End Time :
+                                  
+                                   <input type="hidden" class="form-control" ng-model="elemnt.end" placeholder="End time" id="input-password">
+                                
+                                    <select ng-model="e_hour" ng-change="elemnt.end=e_hour+':'+e_minute+':'+e_zone">
+                                       <option ng-repeat="h in hours" >{{h}}</option>
+                                   </select>
+                                    <select ng-model="e_minute" ng-change="elemnt.end=e_hour+':'+e_minute+':'+e_zone">
+                                       <option ng-repeat="h in minutes">{{h}}</option>
+                                   </select>
+                                   <select ng-model="e_zone" ng-change="elemnt.end=e_hour+':'+e_minute+':'+e_zone">
+                                       <option>AM</option>
+                                       <option>PM</option>
+                                   </select>
+                                
+                                </div>
+                                <div class="checkbox c-checkbox">
+                                    <input type="hidden" ng-model="elemnt.teacherId">
+                                    Teacher :
+                                    <select class="form-control" ng-model="selectedClassTeacher" ng-change="elemnt.teacherId=selectedClassTeacher.teacherId" ng-options="item.teacherName for item in teachersList">
+                       
+                  </select>
+                                </div>
+                               <div class="checkbox c-checkbox">
+                                    <input type="hidden" ng-model="elemnt.subject">
+                                    Subject :
+                                    <select class="form-control" ng-model="selectedSubject" ng-change="elemnt.subject=selectedSubject.subjectId" ng-options="item.subjectName for item in subjectList">
+                                           
+                       
+                  </select>
+                                </div>
+                                
+                         <span ng-hide="elemnt.length == 1">
+                            <a href ng-click="timeTableElement.splice($index, 1)">remove</a>
+                        </span>
+                        </form>
+                        
+                        
+                   
+                       
+                    </div>
+                
+                    <hr/>
+                </li>
+                <li>
+                    <a href ng-click="newItem($event)">Add new row</a>
+                </li>
+            </ul>
+             
+             
+             
+             
+       
+             
+              <div class="form-group">
+                  <div class="col-md-3">
+                      <button class="btn btn-sm btn-info" type="submit" ng-click="postTimetable()">Save Timetable</button>
+                  </div>
+               </div>
+          
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+            <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

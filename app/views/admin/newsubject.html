@@ -1,0 +1,19 @@
+<h3></h3>
+<fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Enter subject Name :</label>
+               <div class="col-sm-7">
+                   <input type="text" ng-model="subjectData.subjectName" placeholder="Enter subject name eg: Mathematics" class="form-control">
+               </div>
+            </div>
+         </fieldset>
+
+<fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label"></label>
+               <div class="col-sm-7">
+                   <button class="btn btn-primary" type="button" ng-click="newSubject(subjectData)" > Save subject</button>
+               </div>
+            </div>
+         </fieldset>
+ <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

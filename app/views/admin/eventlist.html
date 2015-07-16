@@ -1,0 +1,36 @@
+<div ng-controller="eventListController as table">
+         <div class="panel panel-default  {{ dataLoad }}">
+                                                                            <div class="panel-heading">
+                                                                               
+                                                                                <input type="text" class="form-control" style="width:25%; " placeholder="Search here" ng-model="search" > 
+                                                                                
+                                                                                 <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+                                                                                 <div ng-if="gradeFilter" class="panel-title">Classes</div>
+                                                                            </div>
+                                                                            <div class="table-responsive ">
+                                                                             
+                                                                             <table ng-table="table.tableParams" export-csv="csv"  class="table table-bordered table-striped">
+                                                                                   
+                                                                           
+                                                                                   
+                                                                                
+                                                                                   <tr ng-repeat="s in $data | filter: search ">
+                                                                                       
+                                                                                       <td data-title ="'No'" align="center" >{{ $index + 1 }}</td>
+                                                                                        <td data-title ="'Event Date'" align="center" >{{s.eventDate |  cmdate:'dd-MMM-yyyy' }}</td>
+                                                                                        <td data-title ="'Event'" align="center" >{{ s.title }} </td>
+                                                                                        <td data-title ="'Start Time'" align="center" >{{ s.startTime }}</td>
+                                                                                          <td data-title ="'End Time'" align="center" >{{ s.endTime }}</td>
+                                                                                          <td data-title ="'Type'" align="center" >{{ s.eventType }}</td>
+                                                                                        
+                                                                                                 <td data-title=""><a ui-sref="admin.EventsView({eid : s.eventId})">view/edit</a></td>
+                                                                                                 
+                                                                                          
+                                                                                     </tr>
+                                                                            
+                                                                               </table>
+                                                                      
+                                                                            </div>
+                                  </div>
+    
+</div>

@@ -1,0 +1,155 @@
+<div ng-controller="eventEditController">
+    
+ 
+   <div class="panel panel-default">
+                                                <div class="panel-heading">Edit event details Event</div>
+                                                <div class="panel-body">
+                                                   <form class="form-horizontal ng-pristine ng-valid">
+                                                   
+                                                       
+                                                        <fieldset>
+
+                                                                    <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">Event date</label>
+                                                                       <div class="col-sm-2">
+                                                                           <input type="text" readonly="" placeholder="Event date" ng-model="eventInfo.eventDate | cmdate:'dd-MM-yyyy' " id="e_date" data-ng-options="datepickerOptions" my-date-picker class="form-control"/>
+                              
+                                                                       </div>
+                                                                    </div>
+                                                       </fieldset>
+                                                       
+                                                       
+                                                           <fieldset>
+
+                                                                    <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">Event</label>
+                                                                       <div class="col-sm-2">
+                                                                           <input type="text" class="form-control" ng-model="eventInfo.title" placeholder="Event Name">
+                                                                       </div>
+                                                                    </div>
+                                                       </fieldset>
+                                                       
+                                                        <fieldset>
+
+                                                                    <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">Description</label>
+                                                                       <div class="col-sm-6">
+                                                                           <textarea class="form-control" ng-model="eventInfo.description">
+                                                                               
+                                                                           </textarea>
+                                                                       </div>
+                                                                    </div>
+                                                       </fieldset>
+                                                       
+                                                       
+                                                       
+                                                       <fieldset>
+                                                           
+                                                           <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">Start time</label>
+                                                                       <div class="col-sm-6">
+                                                                         
+                                                                             <div class="form-group" style="margin-left:2%; ">
+                                                                                <input type="hidden" class="form-control" ng-model="eventInfo.startTime" placeholder="Start time" id="input-email">
+
+
+                                                                               <select ng-model="s_hour" ng-change="eventInfo.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                                                                   <option ng-repeat="h in hours" >{{h}}</option>
+                                                                               </select>
+                                                                                <select ng-model="s_minute" ng-change="eventInfo.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                                                                   <option ng-repeat="h in minutes">{{h}}</option>
+                                                                               </select>
+                                                                               <select ng-model="s_zone" ng-change="eventInfo.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                                                                   <option>AM</option>
+                                                                                   <option>PM</option>
+                                                                               </select>
+
+                                                                                   </div> 
+                                                                       </div>
+                                                                    </div>
+                                                           
+                                                       </fieldset>
+                                                                   
+                                                       <fieldset>
+                                                           
+                                                            <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">End Time</label>
+                                                                       <div class="col-sm-6">
+                                                                                   <div class="form-group" style="margin-left:2%; ">
+                                   
+                                  
+                                                                                        <input type="hidden" class="form-control" ng-model="eventInfo.endTime" placeholder="End time" id="input-password">
+
+                                                                                         <select ng-model="e_hour" ng-change="eventInfo.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                                                                            <option ng-repeat="h in hours" >{{h}}</option>
+                                                                                        </select>
+                                                                                         <select ng-model="e_minute" ng-change="eventInfo.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                                                                            <option ng-repeat="h in minutes">{{h}}</option>
+                                                                                        </select>
+                                                                                        <select ng-model="e_zone" ng-change="eventInfo.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                                                                            <option>AM</option>
+                                                                                            <option>PM</option>
+                                                                                        </select>
+
+                                                                                     </div>
+                                                                           
+                                                                       </div>
+                                                                    </div>
+                                                           
+                                                       </fieldset>
+                                                       
+                                      
+                                                       
+                                                       
+                                                        <fieldset>
+
+                                                                    <div class="form-group">
+                                                                       <label class="col-sm-3 control-label">Description</label>
+                                                                       <div class="col-sm-6">
+                                                                         
+                                                                            <div class="form-group">
+                                                                                <div class="col-lg-10">
+                                                                                   <div class="checkbox c-checkbox">
+                                                                                      <label>
+                                                                                          <input type="checkbox"    ng-click="classEvent=!classEvent">
+
+                                                                                         <span class="fa fa-check"></span>Class event</label>
+                                                                                   </div>
+                                                                                </div>
+                                                                             </div>
+                                                                                <div class="form-group" ng-show="classEvent">
+
+                                                                                  <div class="col-lg-3">
+                                                                                        <select class="form-control" ng-model="eventInfo.selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+
+                                                                                        </select>
+                                                                                  </div>
+                                                                               </div>
+                                                                           
+                                                                       </div>
+                                                                    </div>
+                                                       </fieldset>
+                                                       
+                                                       
+                                                      
+                   
+                                                     
+                                                       
+                                                 
+                                                         <fieldset>
+
+                                                                    <div class="form-group">
+                                                                       <label class="col-sm-3 control-label"></label>
+                                                                       <div class="col-sm-6">
+                                                                            <button class="btn btn-sm btn-info" type="submit" ng-click="updateEvent(eventInfo)">Update event details</button>
+                                                       
+                                                                       </div>
+                                                                    </div>
+                                                       </fieldset>
+                                                   </form>
+                                                </div>
+                                             </div>
+    
+    
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+</div>

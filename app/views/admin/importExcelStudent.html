@@ -1,0 +1,60 @@
+  <style type='text/css'>
+    .button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 200px;
+    height: 65px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+  </style>
+
+<div class="panel">
+               <div class="panel-body">
+                  <div>
+                     <h4>Upload Student Details from Excel File </h4>
+                     <hr/>
+                    
+                  </div>
+                  
+               <div class="form-group">
+                  <label class="col-lg-2 control-label"></label>
+                  <div class="col-lg-10">
+                      
+                  </div>
+                   </div><br>
+                   <br>
+                   <br>
+                     <div class="form-group">
+                  <label class="col-lg-2 control-label">Excel file to upload</label>
+                  <div class="col-lg-10">
+                      <div class="bootstrap-filestyle input-group" style="width: 30%" ><input type="text" disabled="" class="form-control "> <span ngf-select ngf-change="upload($files,1)" class="group-span-filestyle input-group-btn" tabindex="0"><label class="btn btn-default " for="filestyle-1"><span class="glyphicon glyphicon-folder-open"></span> Choose excel file to upload</label></span></div>
+   
+                  <!--    <div class="button" ngf-select ngf-change="upload($files,sid)" ngf-multiple="multiple">Select File</div>
+                  -->
+                  </div>
+               </div>
+                 
+    
+   
+    
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+    </ul>
+    Upload Log:
+    <pre>{{log}}</pre>
+               </div>
+            </div>

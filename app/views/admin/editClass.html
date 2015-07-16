@@ -1,0 +1,58 @@
+<div ng-controller="editClassController">
+    <form ng-submit="saveClass()" class="form-validate ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern ng-valid-validator ng-submitted" novalidate="" name="registerForm">
+                                            <!-- START panel-->
+                 
+    
+    
+    <div class="panel panel-default">
+         <div class="panel-heading">View and edit class details</div>
+         <div class="panel-body">
+            <form class="form-horizontal ng-pristine ng-valid">
+                <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Class</label>
+                            <div class="col-lg-10">
+                              <input ng-model="grade.gradeName" type="text" min="1" max="12" class="form-control" style="width: 5%;">
+                                                    
+                            </div>
+                         </div>
+                    
+                </fieldset>
+                 <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Section</label>
+                            <div class="col-lg-10">
+                               <select ng-model="grade.section">
+                                                         <option  ng-repeat="s in sections">{{s}}</option>
+                                                     </select>
+                            </div>
+                         </div>
+                    
+                </fieldset>
+                 <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Class Teacher</label>
+                            <div class="col-lg-10">
+                                {{ grade.classTeacher }}
+                                
+                                <a href="javascript:void();" ng-click="t_show = !t_show">Change class teacher   </a>
+                                <select ng-show="t_show" ng-model="grade.classTeacherId" >
+                                                         <option value="{{ t.teacherId }}" ng-repeat="t in teachers">{{ t.teacherName }}</option>
+                                                         <option value="">Choose Later</option>
+                                                     </select>
+                            </div>
+                         </div>
+                    
+                </fieldset>
+                <div class="panel-footer">
+                                                  <div class="clearfix">
+
+                                                     <div class="pull-left">
+                                                         <button class="btn btn-primary" ng-click="updateClass(grade)" type="submit" >Update class info</button>
+                                                     </div>
+                                                  </div>
+                                               </div>
+            </form>
+         </div>
+      </div>
+</div>      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

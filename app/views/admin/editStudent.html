@@ -1,0 +1,566 @@
+
+<div ng-controller="editStudentController" class="container-fluid">
+
+  
+
+
+
+<div class="row">
+
+   <div class="col-lg-12">
+      <!-- START panel-->
+      <div id="panelDemo15" class="panel panel-default">
+         <div class="panel-heading">View and edit student details</div>
+         <div class="panel-body">
+            <tabset type="pills">
+               <tab heading="Basic info">
+                 
+                   
+                   <fieldset></fieldset>
+                   
+                   <!-- TAB1 -->
+                    <fieldset>
+                    
+                         
+                         
+                         <!-- Basic info -->
+                         
+                                                           
+                                    
+                                            <fieldset>
+
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Register number</label>
+                                                  <div class="col-sm-2">
+                                                      <input ng-model="selectedStudent.registerNumber" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+
+
+
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Name</label>
+                                                  <div class="col-sm-7">
+                                                        <input ng-model="selectedStudent.studentName" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                               </div>
+                                            </fieldset>
+
+
+
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Gender</label>
+                                                  <div class="col-sm-7">
+
+                                                     <label class="radio-inline c-radio">
+                                                         <input id="inlineradio1" ng-model="selectedStudent.gender" name="i-radio" value="Male" checked="checked" type="radio">
+                                                        <span class="fa fa-circle"></span>Male</label>
+                                                     <label class="radio-inline c-radio">
+                                                        <input id="inlineradio2" name="i-radio" ng-model="selectedStudent.gender" value="Female" type="radio">
+                                                        <span class="fa fa-circle"></span>Female</label>
+
+
+                                               </div>
+                                            </fieldset> 
+
+
+
+
+
+                                              <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">No of siblings</label>
+                                                  <div class="col-sm-1">
+                                                      <input type="text"  max="5" min="10"  class="form-control " ng-model="selectedStudent.no_of_siblings" required="" name="number">
+                                               </div>
+                                               </div>
+                                            </fieldset>
+
+                                               <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Date of birth</label>
+                                                  <div class="col-sm-7">
+                                                      <p class="input-group">
+                             
+
+                                                          <input type="text" ng-model="selectedStudent.dob | cmdate:'dd-MM-yyyy'" readonly  id="dob"  placeholder="dd-mm-yyyy" data-ng-options="datepickerOptions" my-date-picker class="form-control" />
+                                                                        
+                                                                              </p>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                         
+                                           <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Class</label>
+                                                  
+                                                  <div class="col-sm-3">
+                                                      {{currentClass }}
+                                                      &nbsp;&nbsp;&nbsp;&nbsp;
+                                                      <a href="javascript:void();" ng-click="changeClass=!changeClass">click to change class</a>
+                                                      <select class="form-control" ng-show="changeClass"  ng-model="selectedStudent.grade" ng-change="selectedStudent.gradeId = selectedClass.gradeId" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                         <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Blood Group</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control"  ng-model="selectedStudent.bloodGroup">
+                                                          <option>A+</option>
+                                                          <option>A-</option>
+                                                          <option>B+</option>
+                                                          <option>B-</option>
+                                                          <option>AB+</option>
+                                                          <option>AB-</option>
+                                                          <option>O+</option>
+                                                          <option>O-</option>
+                      
+                                                         </select>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Mode of transport</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="selectedStudent.modeOfTransport">
+                                                          <option>Bus</option>
+                                                          <option>Own vehicle</option>
+                                                          <option>Other</option>
+                                                         
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                          <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Fee type</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="selectedStudent.feeType">
+                                                          <option>Monthly</option>
+                                                          <option>Quarterly</option>
+                                                          <option>Half Yearly</option>
+                                                          <option>Yearly</option>
+                                                         
+                                                         
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                          <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Physically challenged</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="selectedStudent.medicalCondition">
+                                                          <option>No</option>
+                                                          <option>Yes</option>
+                                                          
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+
+
+                                     <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label"></label>
+                                                  <div class="col-sm-2">
+                                                    
+                                                      
+                                                      <button class="btn btn-info" role="submit" ng-click="updateBasicInfo(selectedStudent)"> 
+                                                          Update student details
+                                                          
+                                                      </button>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+
+
+                                       <!--
+
+                                             <div class="panel-footer text-center">
+                                                 <button class="btn btn-info" role="button" ng-click="show(studentData)">Save Student details </button>
+                                                      <button class="btn btn-info" type="reset">Clear data      </button>
+                                                  </div>
+
+                                      -->
+                                        
+                                  
+
+                         <!-- end basic info -->
+                         
+                         
+                         
+                         
+                         
+                         
+                     </fieldset>
+
+                   
+                   <!--TAB2 -->
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+               
+               </tab>
+               <tab heading="Address">
+               
+                   <!-- TAB2 -->
+                   <fieldset></fieldset>
+                    <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Address</label>
+                                                                   <div class="col-sm-7">
+                                                                       <textarea class="form-control" ng-model="selectedStudent.present_address.address" placeholder="Enter full Address "></textarea>
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>
+                                                                  <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Place</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input  type="text" ng-model="selectedStudent.present_address.place" placeholder="Enter place" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>          <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Landmark</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input  placeholder="Enter Landmark" ng-model="selectedStudent.present_address.landmark   " type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>          <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Land Line</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input ng-model="selectedStudent.present_address.landline" placeholder="Enter LandLine number" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>
+                                                               <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label"></label>
+                                                  <div class="col-sm-2">
+                                                    
+                                                      
+                                                      <button class="btn btn-info" ng-click="updateAddress(selectedStudent.present_address)"> 
+                                                          Update Address details
+                                                          
+                                                      </button>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                                             
+                   <!-- TAB2 -->
+                   
+                   
+                   
+                   
+               </tab>
+                <tab heading="Father details">
+                    
+                    <!-- TAB-3 -->
+                    <fieldset></fieldset>
+                       
+                            <fieldset>
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="hidden" ng-model="selectedStudent.father_id">
+                                                                                    <input type="text" ng-model="selectedStudent.father.name" class="form-control" placeholder="Enter Father's name">
+                                                                                </div>
+                                                                             </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                            
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                             </fieldset>
+                            <fieldset>
+                            
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                
+                            </fieldset>
+                            <fieldset>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.designation" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                           </fieldset>
+                            <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.mobileNumber" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                             <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">E-Mail id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.emailId" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                                    <fieldset>    
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.father.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                    </fieldset>  
+                                       <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label"></label>
+                                                  <div class="col-sm-2">
+                                                    
+                                                      
+                                                      <button class="btn btn-info" ng-click="updateParentInfo(selectedStudent.father_id,selectedStudent.father)"> 
+                                                          Update Father details
+                                                          
+                                                      </button>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                                                       
+                    <!-- TAB3 -->
+                    
+                    
+                </tab>
+                <tab heading="Mother details">
+                    
+                    <!-- TAB4 -->
+                    <fieldset></fieldset>
+                       
+                            <fieldset>
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                     <input type="hidden" ng-model="selectedStudent.mother_id">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.name" class="form-control" placeholder="Enter Mother's name">
+                                                                                </div>
+                                                                             </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                            
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                             </fieldset>
+                            <fieldset>
+                            
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                
+                            </fieldset>
+                            <fieldset>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.designation" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                           </fieldset>
+                            <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.mobileNumber" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                             <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">E-Mail id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.emailId" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                                    <fieldset>    
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.mother.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                    </fieldset>   
+                                       <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label"></label>
+                                                  <div class="col-sm-2">
+                                                    
+                                                      
+                                                      <button class="btn btn-info" ng-click="updateParentInfo(selectedStudent.mother_id,selectedStudent.mother)"> 
+                                                          Update Mother details
+                                                          
+                                                      </button>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                    <!-- TAB4 -->
+                    
+                    
+                </tab>
+                <tab heading="Local Guardian details">
+                    <!-- TAB5 -->
+                    <fieldset></fieldset>
+                       
+                            <fieldset>
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                     <input type="hidden" ng-model="selectedStudent.local_guardian_id">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.name" class="form-control" placeholder="Enter  name">
+                                                                                </div>
+                                                                             </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                            
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                             </fieldset>
+                            <fieldset>
+                            
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                
+                            </fieldset>
+                            <fieldset>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.designation" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                           </fieldset>
+                            <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.mobileNumber" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                             <fieldset>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">E-Mail id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.emailId" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                </fieldset>
+                                    <fieldset>    
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="selectedStudent.local_guardian.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                   </fieldset>   
+                  
+                       <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label"></label>
+                                                  <div class="col-sm-2">
+                                                    
+                                                      
+                                                      <button class="btn btn-info" ng-click="updateParentInfo(selectedStudent.local_guardian_id,selectedStudent.local_guardian)"> 
+                                                          Update Local Guardian details
+                                                          
+                                                      </button>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                    <!-- TAB 5 -->
+                </tab>
+            </tabset>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+</div>
+<!-- END row-->

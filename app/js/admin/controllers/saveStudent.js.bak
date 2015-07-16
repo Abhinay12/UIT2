@@ -1,0 +1,104 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+App.controller('saveStudentController',["$scope","$http",'Grade','APISource','toaster',function($scope,$http,Grade,APISource,toaster){
+        
+  console.log("Save student controller loaded")   
+    var dob = new Date(2000,0,1);
+    var dd = dob.getDate();
+    var mm = dob.getMonth()+1; //January is 0!
+
+    var yyyy = dob.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    dob = dd+'-'+mm+'-'+yyyy;
+    $scope.dob = dob;
+    
+    
+    
+    
+           $scope.classList = Grade.query( function(){ $scope.selectedClass = $scope.classList[0];  });
+           
+           
+     $scope.show = function(studentData){
+     
+        var data = studentData;
+        data.dob = $('#dob').val()
+        console.log(data) 
+       
+        
+     };      
+         
+         
+     $scope.saveStudentData = function(studentData)
+                                {     
+                                    toaster.pop("wait", "Saving data"," saving please wait.. ");
+                                     var data = studentData;
+                                     data.student['dob'] = $('#dob').val();
+                                     console.log(JSON.stringify(data)) 
+                                      $http.post(APISource.currentApiPoint+'/app/admin/student/save' ,  data )
+                                              .success(function(data){
+                                                  console.log(data);
+                                            $('.toast-wait').hide()
+                                                                        $scope.pop('Success','Data saved','Student details added'); 
+                                                                       // setTimeout(function () {
+                                                                         //             window.location.reload();
+
+                                                                           //   }, 1000);
+
+                                                                  
+                                              })
+                                              .error(function(data){
+                                                  console.log(data)
+                                              });
+
+
+
+
+                                };
+   
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     $scope.pop = function(type,title,text) {
+                                                                       $scope.toaster = {
+                                                                                type: (type) ? type : 'success',
+                                                                                title: (title) ? title :'Title',
+                                                                                text:  (text) ? text :'Message'
+                                                                            };  
+    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+  };
+
+                                  
+         
+        
+        
+}]);
+
+

@@ -1,0 +1,60 @@
+<div ng-controller="noticeEditController">
+          <div id="panelDemo15" class="panel panel-default">
+     <div class="panel-heading">Notice details. You can update notice here</div>
+   
+     <div class="panel-body">
+                        <form class="form-horizontal ng-pristine ng-valid" ng-submit="updateNotice(noticeInstance)">
+        <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Topic</label>
+               <div class="col-sm-10">
+                   <input type="text" ng-model="noticeInstance.topic" class="form-control" placeholder="Enter notice title">
+                 
+               </div>
+            </div>
+         </fieldset>
+          
+           <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Salutation</label>
+               <div class="col-sm-2">
+                   <input type="text"  ng-model="noticeInstance.salutation" class="form-control" placeholder="Eg: Sir , Madam , Dera Parent etc"/>
+                 
+               </div>
+            </div>
+         </fieldset>
+          
+              <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Message</label>
+               <div class="col-sm-10">
+                   <textarea ng-model="noticeInstance.message" class="form-control" placeholder="Enter message"></textarea>
+                 
+               </div>
+            </div>
+         </fieldset>
+           <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Sign off Word</label>
+               <div class="col-sm-2">
+                   <input type="text"  ng-model="noticeInstance.signoffWord" class="form-control" placeholder="Eg: Sincerely , Regards"/>
+                 
+               </div>
+            </div>
+         </fieldset>
+             <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label"></label>
+               <div class="col-sm-2">
+                   <button class="btn btn-sm btn-info"  type="submit">Update Notice</button>
+               </div>
+            </div>
+         </fieldset>
+              
+          
+      </form>
+   </div>
+</div>
+</div>
+   <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+</div>

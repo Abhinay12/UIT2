@@ -1,0 +1,158 @@
+<div class="panel panel-default" ng-controller="classesController as table"  ng-init="try_async_load();" >
+         <div class="panel-body">
+           <div class="alert alert-green">{{ output }}</div>
+   <div class="row">
+       <p> &nbsp;&nbsp;&nbsp;&nbsp; Displaying all classes. You can create new class here  {{ gradeFilter }} {{ sectionFilter }}
+              
+            <div class="row">
+               <div class="col-md-9 col-md-push-3">
+                   <div class="box-placeholder">
+                       
+                
+                          <!-- START DATATABLE 1 -->
+         
+
+               
+                       
+                                    <div class="panel panel-default  {{ dataLoad }}">
+                                                                            <div class="panel-heading">
+                                                                            
+                                                                                 <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+                                                                                 <div ng-if="gradeFilter" class="panel-title">Classes</div>
+                                                                            </div>
+                                                                            <div class="table-responsive ">
+                                                                             
+                                                                               <table ng-table="table.tableParams" export-csv="csv" show-filter="true" class="table table-bordered table-striped">
+                                                                                   
+                                                                           
+                                                                                   
+                                                                                
+                                                                                   <tr ng-repeat="g in $data | filter:{'gradeName':  gradeFilter} | filter: {'section' : sectionFilter}| orderBy:'gradeName'">
+                                                                                         <td data-title ="'Class'" align="center" >{{g.gradeName}}</td>
+                                                                                        <td data-title ="'Section'" align="center" >{{g.section}}</td>
+                                                                                        <td data-title ="'Class Teacher'" align="center" >{{ g.classTeacher }} </td>
+                                                                                        <td data-title ="'Total Students'" align="center" >{{ g.student.length }}</td>
+                                                                                         <td data-title=""><a ui-sref="admin.classView({cid : g.gradeId})">view/edit</a></td>
+                                                                                     </tr>
+                                                                            
+                                                                               </table>
+                                                                            </div>
+                                  </div>
+                       
+                       
+                       
+                       
+                       
+                   </div>
+               </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               <div class="col-md-3 col-md-pull-9">
+                   <div class="box-placeholder">
+                
+                        <div class="well wd-wide  {{ treeLoading }}">      <div class="panel-title">Listing All Classes</div>
+                                           <span ng-if="doing_async">...loading...</span>
+                                            <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+                         </div>
+                                                               <div class="btn-group btn-group-justified mb"><a ng-click="my_tree.expand_all()" class="btn btn-default btn-sm">Expand All</a>
+                                                                                                             <a ng-click="my_tree.collapse_all()" class="btn btn-default btn-sm">Collapse All</a>
+                                                                                                             <a ng-click="gradeFilter=''; sectionFilter='';my_tree.collapse_all(); " class="btn btn-default btn-sm">Show All </a>
+                                                              </div>
+                     </div>    
+                       
+                       
+                      <div class="box-placeholder {{ teacherLoading }}"> 
+                       <!--FORM  -->
+                       <form ng-submit="saveClass()" class="form-validate ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern ng-valid-validator ng-submitted" novalidate="" name="registerForm">
+                                            <!-- START panel-->
+                                            <div class="panel panel-default">
+                                               <div class="panel-heading">
+                                                  <div class="panel-title">New Class</div>
+                                               </div>
+                                               <div class="panel-body">
+
+
+                                                  <div class="form-group">
+                                                     <label class="control-label">Class *</label><br>
+                                                     <input ng-model="fields.name" type="number" min="1" max="12" style="width: 35%;" class="form-control ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required" ng-model="register.email" required="" name="email" placeholder="class name (eg: 1,2,3)">
+                                                     <span class="text-danger ng-hide" ng-show="registerForm.email.$dirty &amp;&amp; registerForm.email.$error.required">This field is required</span>
+                                                     <span class="text-danger ng-hide" ng-show="registerForm.email.$dirty &amp;&amp; registerForm.email.$error.email">This field must be a valid number</span>
+                                                  </div>
+
+
+                                                  <div class="form-group">
+                                                      <label class="control-label">Section *</label> <br>
+
+                                                     <select ng-model="fields.section">
+                                                         <option  ng-repeat="s in sections">{{s}}</option>
+                                                     </select>
+
+                                                     <span class="text-danger ng-hide" ng-show="registerForm.password1.$dirty &amp;&amp; registerForm.password1.$error.pattern">Input should match 'a-zA-Z0-9' and 6-10 length</span>
+                                                  </div>
+
+
+
+                                                  <div class="form-group">
+                                                      <label class="control-label">Teacher </label><br>
+                                                     <select ng-model="fields.classTeacherId">
+                                                         <option value="{{ t.teacherId }}" ng-repeat="t in teachers">{{ t.teacherName }}</option>
+                                                         <option value="">Choose Later</option>
+                                                     </select>
+                                                     <span class="text-danger ng-hide" ng-show="registerForm.confirm_match.$dirty &amp;&amp; registerForm.confirm_match.$error.validator">Password does Not match</span>
+                                                  </div>
+
+
+
+                                                  <div class="required">* Required fields</div>
+
+                                               </div>
+
+                                               <div class="panel-footer">
+                                                  <div class="clearfix">
+{{ Savemsg }}
+                                                     <div class="pull-right">
+                                                         <button class="btn btn-primary" type="submit" >Register</button>
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                            </div>
+                                            <!-- END panel-->
+                          </form>
+                       
+                       <!-- -->
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+</div>
+
+
+
+
+<div ng-controller="ToasterDemoCtrl" class="panel-body">
+      <input type="hidden" ng-model="toaster.type" value="success" />
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+     
+    
+   </div>

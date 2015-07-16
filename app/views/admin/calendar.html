@@ -1,0 +1,161 @@
+<h3>Create Event
+   
+</h3>
+
+
+
+<!-- START row-->
+<div ng-controller="EventCalendarController" class="calendar-app">
+
+<div class="row">
+               <div class="col-md-3">
+                   
+                       
+                       
+                                          <div class="panel panel-default">
+                                                <div class="panel-heading">Create new Event</div>
+                                                <div class="panel-body">
+                                                   <form class="form-horizontal ng-pristine ng-valid">
+                                                      <div class="form-group">
+                                                        
+                                                         <div class="col-lg-10">
+                          
+                             
+
+                                                             <input type="text" readonly="" placeholder="Event date" ng-model="eventDate" id="e_date" data-ng-options="datepickerOptions" my-date-picker class="form-control"/>
+                              
+                      
+                                                         </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                       
+                                                         <div class="col-lg-10">
+                                                             <input type="text" class="form-control" ng-model="eventInstance.title" placeholder="Event Name">
+                                                         </div>
+                                                      </div>
+                                                          <div class="form-group">
+                                                       
+                                                         <div class="col-lg-10">
+                                                             <textarea class="form-control" ng-model="eventInstance.description" placeholder="Event Description"></textarea>
+                                                         </div>
+                                                      </div>
+                                                       
+                                                       Start Time :
+                                                           <div class="form-group" style="margin-left:2%; ">
+                                    <input type="hidden" class="form-control" ng-model="eventInstance.startTime" placeholder="Start time" id="input-email">
+                           
+                                   
+                                   <select ng-model="s_hour" ng-change="eventInstance.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                       <option ng-repeat="h in hours" >{{h}}</option>
+                                   </select>
+                                    <select ng-model="s_minute" ng-change="eventInstance.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                       <option ng-repeat="h in minutes">{{h}}</option>
+                                   </select>
+                                   <select ng-model="s_zone" ng-change="eventInstance.startTime=s_hour+':'+s_minute+':'+s_zone">
+                                       <option>AM</option>
+                                       <option>PM</option>
+                                   </select>
+                                   
+                                       </div> End Time :
+                                       <div class="form-group" style="margin-left:2%; ">
+                                   
+                                  
+                                   <input type="hidden" class="form-control" ng-model="eventInstance.endTime" placeholder="End time" id="input-password">
+                                
+                                    <select ng-model="e_hour" ng-change="eventInstance.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                       <option ng-repeat="h in hours" >{{h}}</option>
+                                   </select>
+                                    <select ng-model="e_minute" ng-change="eventInstance.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                       <option ng-repeat="h in minutes">{{h}}</option>
+                                   </select>
+                                   <select ng-model="e_zone" ng-change="eventInstance.endTime=e_hour+':'+e_minute+':'+e_zone">
+                                       <option>AM</option>
+                                       <option>PM</option>
+                                   </select>
+                                
+                                </div>
+                                                       
+                                                       
+                                                       
+                                                       
+                                                      
+                   
+                                                      <div class="form-group">
+                                                         <div class="col-lg-10">
+                                                            <div class="checkbox c-checkbox">
+                                                               <label>
+                                                                   <input type="checkbox"    ng-click="classEvent=!classEvent">
+                                                                 
+                                                                  <span class="fa fa-check"></span>Class event</label>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                       <div class="form-group" ng-show="classEvent">
+                                                       
+                                                         <div class="col-lg-10">
+                                                               <select class="form-control" ng-model="eventInstance.selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+                                                         </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                         <div class="col-lg-10">
+                                                             <button class="btn btn-sm btn-info" type="submit" ng-click="saveEvent(eventDate , eventInstance)">Save event</button>
+                                                         </div>
+                                                      </div>
+                                                   </form>
+                                                </div>
+                                             </div>
+                   <div class="panel panel-default">
+         <div class="panel-heading">More options </div>
+         <div class="panel-body">
+            <form role="form" class="ng-pristine ng-valid">
+               <div class="form-group">
+                   <a href="javascript:void()"> Calender view </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()" ui-sref="admin.EventsList"> Detailed list view </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()" ui-sref="admin.EventsList"> Modify event </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()"> Delete event </a>
+              
+               </div>
+             
+            </form>
+         </div>
+      </div>
+                                                                 
+               </div>
+    
+    
+               
+               <div class="col-md-9">
+                
+ 
+                  
+                 <div class="panel panel-default">
+            <div class="panel-body">
+               <!-- START calendar-->
+               <div id="calendar"></div>
+               <!-- END calendar-->
+            </div>
+         </div>
+               
+              
+      
+                       
+                       
+                       
+         
+               </div>
+            </div>
+   <!-- END row-->
+</div>
+
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

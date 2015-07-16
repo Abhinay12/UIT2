@@ -1,0 +1,136 @@
+<h3>Create Event
+   
+</h3>
+
+
+
+<!-- START row-->
+<div ng-controller="EventCalendarController" class="calendar-app">
+    {{ eventDate }}
+<div class="row">
+               <div class="col-md-3">
+                   
+                       
+                       
+                                          <div class="panel panel-default">
+                                                <div class="panel-heading">Create new Event</div>
+                                                <div class="panel-body">
+                                                   <form class="form-horizontal ng-pristine ng-valid">
+                                                      <div class="form-group">
+                                                        
+                                                         <div class="col-lg-10">
+                          
+                             
+
+                                                             <input type="text" readonly="" placeholder="Event date" ng-model="eventDate" id="e_date" data-ng-options="datepickerOptions" my-date-picker class="form-control"/>
+                              
+                      
+                                                         </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                       
+                                                         <div class="col-lg-10">
+                                                             <input type="text" class="form-control" ng-model="eventInstance.title" placeholder="Event Name">
+                                                         </div>
+                                                      </div>
+                                                          <div class="form-group">
+                                                       
+                                                         <div class="col-lg-10">
+                                                             <textarea class="form-control" ng-model="eventInstance.description" placeholder="Event Description"></textarea>
+                                                         </div>
+                                                      </div>
+                                                           <div class="form-group">
+                                                        
+                                                         <div class="col-lg-10">Start time
+                                                             <input type="text" class="form-control" ng-model="eventInstance.startTime" style="width: 45%;" placeholder="eg: 10:00 AM"/>
+                                                         </div>
+                                                      </div>
+                                                           <div class="form-group">
+                                                       
+                                                         <div class="col-lg-10">End time
+                                                               <input type="text" class="form-control" ng-model="eventInstance.endTime" style="width: 45%;" placeholder="eg: 03:00 PM"/>
+                                                          
+                                                         </div>
+                                                      </div>
+                                                      
+                                                      
+                   
+                                                      <div class="form-group">
+                                                         <div class="col-lg-10">
+                                                            <div class="checkbox c-checkbox">
+                                                               <label>
+                                                                   <input type="checkbox"    ng-click="classEvent=!classEvent">
+                                                                 
+                                                                  <span class="fa fa-check"></span>Class event</label>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                       <div class="form-group" ng-show="classEvent">
+                                                       
+                                                         <div class="col-lg-10">
+                                                               <select class="form-control" ng-model="eventInstance.selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+                                                         </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                         <div class="col-lg-10">
+                                                             <button class="btn btn-sm btn-info" type="submit" ng-click="saveEvent(eventDate , eventInstance)">Save event</button>
+                                                         </div>
+                                                      </div>
+                                                   </form>
+                                                </div>
+                                             </div>
+                   <div class="panel panel-default">
+         <div class="panel-heading">More options </div>
+         <div class="panel-body">
+            <form role="form" class="ng-pristine ng-valid">
+               <div class="form-group">
+                   <a href="javascript:void()"> Calender view </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()"> Detailed list view </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()"> Modify event </a>
+              
+               </div>
+                  <div class="form-group">
+                   <a href="javascript:void()"> Delete event </a>
+              
+               </div>
+             
+            </form>
+         </div>
+      </div>
+                                                                 
+               </div>
+    
+    
+               
+               <div class="col-md-9">
+                
+ 
+                  
+                 <div class="panel panel-default">
+            <div class="panel-body">
+               <!-- START calendar-->
+               <div id="calendar"></div>
+               <!-- END calendar-->
+            </div>
+         </div>
+               
+              
+      
+                       
+                       
+                       
+         
+               </div>
+            </div>
+   <!-- END row-->
+</div>
+
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

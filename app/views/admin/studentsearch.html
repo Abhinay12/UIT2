@@ -1,0 +1,199 @@
+
+<h3>Search Students 
+   <small>Search and filter results</small>
+</h3>
+<div class="row">
+   <div class="col-lg-9">
+      <div class="form-group mb-xl">
+         <input type="text" ng-model="search"  placeholder="Search products, people, apps, etc." class="form-control mb" />
+         <div class="clearfix">
+            <button type="button" class="pull-left btn btn-default">Search</button>
+            <div class="pull-right">
+               <label class="checkbox-inline c-checkbox">
+                  <input id="inlineCheckbox10" type="checkbox" value="option1" />
+                  <span class="fa fa-check"></span>Student Details</label>
+               <label class="checkbox-inline c-checkbox">
+                  <input id="inlineCheckbox20" type="checkbox" value="option2" />
+                  <span class="fa fa-check"></span>Parent details</label>
+               <label class="checkbox-inline c-checkbox">
+                  <input id="inlineCheckbox30" type="checkbox" value="option3" />
+                  <span class="fa fa-check"></span>Address</label>
+            </div>
+         </div>
+      </div>
+      <!-- START panel-->
+      <div class="panel panel-default">
+         <div class="panel-heading">Search Results
+            <paneltool tool-refresh="traditional"></paneltool>
+         </div>
+         <!-- START table-responsive-->
+         <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th check-all="check-all">
+                        <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+                           <label>
+                              <input type="checkbox" />
+                              <span class="fa fa-check"></span>
+                           </label>
+                        </div>
+                     </th>
+                   
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="student in students | filter:search | orderBy : 'studentName'">
+                     <td>
+                        <div class="checkbox c-checkbox">
+                           <label>
+                              <input type="checkbox" />
+                              <span class="fa fa-check"></span>
+                           </label>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="media-box">
+                           <a href="#" class="pull-left">
+                              <img src="app/img/dummy.png" alt="" class="media-box-object img-responsive img-rounded thumb64" />
+                           </a>
+                           <div class="media-box-body">
+                               <button class="pull-right btn btn-info btn-sm" ng-click="view(student)"><a ui-sref="admin.students.edit({sid : student .studentId})"><b>View</b></a></button>
+                              <h4 class="media-box-heading">{{student.studentName}}</h4>
+                              <small class="text-muted"><b>Father:</b> {{student.father.name}}, <b>Mother:</b> {{student.mother.name}}, <b>Class:</b> {{student.grade+student.section}}</small>
+                              <p><b>Addr:</b> {{student.present_address.address}},{{student.present_address.place}},{{student.present_address.landmark}}</p>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                 
+               </tbody>
+            </table>
+         </div>
+         <!-- END table-responsive-->
+         <div class="panel-footer">
+            <div class="row">
+               <div class="col-lg-2">
+                  <button class="btn btn-sm btn-default">Clear</button>
+               </div>
+               <div class="col-lg-8"></div>
+               <div class="col-lg-2 text-right">
+                  <ul class="pagination pagination-sm">
+                     <li class="active"><a href="#">1</a>
+                     </li>
+                     <li><a href="#">2</a>
+                     </li>
+                     <li><a href="#">3</a>
+                     </li>
+                     <li><a href="#">»</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Modal Dialog -->
+    <div class="modal-dialog" style="min-width:900px;">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <h4 class="modal-title">Student details</h4>
+            </div> <!-- Modal Header -->
+            <!-- Modal Body  -->
+            <div class="modal-body">
+               
+                   <form>
+                    <div class="form-group">
+                        
+                        <div class="col-md-3">
+                        <label>Student ID</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.studentId}}</span>
+                        </div>
+                         <div class="col-md-4">
+                        <label>Name</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.studentName}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <div class="col-md-4">
+                        <label>Register Number</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.registerNumber}}</span>
+                        </div>
+                         <div class="col-md-4">
+                        <label>Gender</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.gender}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <div class="col-md-4">
+                        <label>Adress</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.present_address.address}},{{studentDetail.present_address.place}},{{studentDetail.present_address.landmark}}</span>
+                        </div>
+                         <div class="col-md-4">
+                        <label>Number of siblings</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.no_of_siblings}}</span>
+                        </div>
+                    </div>
+                      
+                      <div class="form-group">
+                        
+                        <div class="col-md-4">
+                        <label>DOB</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.dob}}</span>
+                        </div>
+                         <div class="col-md-4">
+                        <label>Present guardian</label>
+                        </div>
+                        <div class="col-md-4">
+                           
+                            <span class="inf-data">: {{studentDetail.present_guardian}}</span>
+                        </div>
+                    </div>
+                    </form>
+
+
+            </div> <!-- Modal Body -->
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-brown" data-dismiss="modal">Close</button>
+                
+                
+            </div> <!-- Modal Footer -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

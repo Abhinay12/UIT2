@@ -1,0 +1,128 @@
+<div id="panelDemo14" class="panel panel-default" ng-controller="NoticeController">
+  
+    
+         <div class="panel-heading">Enter Notice here</div>
+         <div class="panel-body">
+            <tabset>
+               
+                <!-- SECOND TAB -->
+                <tab heading="Notice List">
+                    
+                          <div class="panel panel-default" ng-controller="NoticeController as table"  >
+         <div class="panel-body">
+         
+   <div class="row">
+       <p> &nbsp;&nbsp;&nbsp;&nbsp; Displaying all notices. {{ gradeFilter }} {{ sectionFilter }}
+              
+            <div class="row">
+               <div class="col-md-12">
+                   <div class="box-placeholder">
+                       
+                
+                          <!-- START DATATABLE 1 -->
+         
+
+                       
+                       
+                                    <div class="panel panel-default  {{ dataLoad }}">
+                                                                            <div class="panel-heading">
+                                                                            
+                                                                                 <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+                                                                                 <div ng-if="gradeFilter" class="panel-title">Classes</div>
+                                                                            </div>
+                                                                            <div class="table-responsive ">
+                                                                             
+                                                                               <table ng-table="table.tableParams" export-csv="csv" show-filter="true" class="table table-bordered table-striped">
+                                                                                   
+                                                                           
+                                                                                   
+                                                                                
+                                                                                   <tr ng-repeat="g in $data ">
+                                                                                         <td data-title ="'Topic'" align="center" >{{g.noticeId}}</td>
+                                                                                        <td data-title ="'Message'" align="center" >{{g.message}}</td>
+                                                                                        <td data-title ="'Sender'" align="center" >{{ g.senderName    }} </td>
+                                                                                        <td data-title ="'Date'" align="center" >{{ g.date | cmdate:'dd-MMM-yyyy' }}</td>
+                                                                                        <td align="center"><a ui-sref="admin.viewEditnotice({nid : g.noticeId})">View / Edit</a></td>
+                                                                                     </tr>
+                                                                            
+                                                                               </table>
+                                                                            </div>
+                                  </div>
+                       
+                       
+                   </div>
+               </div>
+                
+               
+             
+            </div>
+         </div>
+      </div>
+</div>
+
+
+                    
+                </tab>
+                
+                 <tab heading="New Notice   ">
+                    
+                    <div class="panel-body">
+                        <form class="form-horizontal ng-pristine ng-valid" ng-submit="saveNotice(noticeInstance)">
+        <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Topic</label>
+               <div class="col-sm-10">
+                   <input type="text" ng-model="noticeInstance.topic" class="form-control" placeholder="Enter notice title">
+                 
+               </div>
+            </div>
+         </fieldset>
+          
+           <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Salutation</label>
+               <div class="col-sm-2">
+                   <input type="text"  ng-model="noticeInstance.salutation" class="form-control" placeholder="Eg: Sir , Madam , Dera Parent etc"/>
+                 
+               </div>
+            </div>
+         </fieldset>
+          
+              <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Message</label>
+               <div class="col-sm-10">
+                   <textarea ng-model="noticeInstance.message" class="form-control" placeholder="Enter message"></textarea>
+                 
+               </div>
+            </div>
+         </fieldset>
+           <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Sign off Word</label>
+               <div class="col-sm-2">
+                   <input type="text"  ng-model="noticeInstance.signoffWord" class="form-control" placeholder="Eg: Sincerely , Regards"/>
+                 
+               </div>
+            </div>
+         </fieldset>
+             <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label"></label>
+               <div class="col-sm-2">
+                   <button class="btn btn-sm btn-info" ng-click="saveNotice" type="submit">Submit</button>
+               </div>
+            </div>
+         </fieldset>
+              
+          
+      </form>
+   </div>
+                  
+                    
+                </tab>
+                
+                </tabset>
+         </div>
+      </div>
+   <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

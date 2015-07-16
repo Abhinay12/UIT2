@@ -1,0 +1,133 @@
+<div ng-controller="parentHomeworkController">
+
+
+   <hr/>
+   <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Choose date of Homework</label>
+                        <div class="col-sm-6">
+                           <p class="input-group">
+                              <input type="text" name="date" required="" datepicker-popup="{{format}}" ng-model="date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close"
+                              class="form-control" />
+                              <span class="input-group-btn">
+                                 <button type="button" ng-click="open($event)" class="btn btn-default">
+                                    <em class="fa fa-calendar"></em>
+                                 </button>
+                              </span>
+                           </p>
+                           <span ng-show="validateInput('date', 'required')" class="text-danger">This field is required</span>
+                        </div>
+                        <div class="col-sm-4">
+                           <small class="text-muted">Value: {{date}}</small>
+                           <button class="btn btn-default btn-sm">Load All Homeworks</button>
+                        </div>
+                     </div>
+             
+
+    </fieldset>
+    
+    <!-- Homework List -->
+
+    
+    <div class="panel ng-scope">
+   <div class="panel-body">
+
+      <h4 class="mt0">Homework for 21-may-2015 , Thursday</h4>
+      <hr>
+      <div class="row mb-lg">
+         <div class="col-xs-6 col-sm-3 ">
+            <div class="row">
+                <h5 style="margin-left: 12px;"> Total 4 homeworks for this day</h5>
+                <h5 style="margin-left: 12px;">Click a subject to view homework details</h5>
+                    <div class="table-responsive table-bordered mb-lg">
+           
+         <table class="table">
+            <thead>
+               <tr>
+                  <th> #</th>
+                  <th>Subject </th>
+                 
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>1</td>
+                  <td> <a href="#">English</a> </td>
+              
+               </tr>
+               <tr>
+                  <td>2</td>
+                 <td> <a href="#">Hindi</a> </td>
+                 
+               </tr>
+               <tr>
+                  <td>3</td>
+                  <td> <a href="#">Social Science</a> </td>
+               
+               </tr>
+               <tr>
+                  <td>4</td>
+                 <td> <a href="#">Hindi</a> </td>
+               
+               </tr>
+            </tbody>
+         </table>
+      </div>
+                
+                
+                
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="row">
+               
+               <div class="col-md-10">
+                   <div class="col-md-2 text-center visible-md visible-lg">
+                  <em class="fa icon-book-open fa-3x text-muted"></em>
+                   
+               </div> 
+                 
+                  <h4>Subject : English </h4>
+                 <hr/>
+                  <br><h4>Assignment</h4>
+                  <br>Read passage from first chapter , prepare note on the same</div>
+            </div>
+         </div>
+         <div class="clearfix hidden-md hidden-lg">
+            <hr>
+         </div>
+         <div class="col-md-3 ">
+            <div class="clearfix">
+               <p class="pull-left">Homework NO.</p>
+               <p class="pull-right mr">1</p>
+            </div>
+              <div class="clearfix">
+               <p class="pull-left">Subject</p>
+               <p class="pull-right mr">English</p>
+            </div>
+            <div class="clearfix">
+               <p class="pull-left">Date</p>
+               <p class="pull-right mr">25/08/2014</p>
+            </div>
+            <div class="clearfix">
+               <p class="pull-left">Due Date</p>
+               <p class="pull-right mr">30/08/2014</p>
+            </div>
+         </div>
+      </div>
+  
+     
+      <hr class="hidden-print">
+      <div class="clearfix">
+       
+         <button class="btn btn-default pull-left" onclick="window.print();" type="button">Print</button>
+    
+      </div>
+   </div>
+</div>
+    
+    
+    
+    
+    
+</div>

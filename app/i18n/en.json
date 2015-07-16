@@ -1,0 +1,75 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  
+  
+  
+  "sidebar": {
+    "WELCOME": "Welcome",
+    "heading": {
+      "HEADER": "Main Menu"
+    },
+    "nav": {
+      "DASH": "Dashboard",
+      "CLASSES": {
+        "MainHead": "Classes",
+        "SUBMENU": "Sub Menu",
+		"ADDNEW" : "Add new class",
+		"VIEWEDIT" : "View or edit classes"
+      },
+	  
+	  "STUDENTS":{
+		       "MainHead" : "Students" , 
+		       "ADDNEW" : "Add new student details",
+		       "VIEWEDIT" : "Student details view and edit",
+		       "IMPORT" : "Import class student data from Excel",
+		       "SEARCHSTUDENT" : "Search student"
+		  
+		  },
+	"TEACHER":{
+		       "MainHead" : "Teachers" , 
+		       "ADDNEW" : "Add new teacher details",
+		       "VIEWEDIT" : "Teacher details view and edit",
+		       "TEACHERTT" :"Teachers TimeTable Schedule"
+		  
+		  }	  ,
+    "EVENTS":{
+		       "MainHead"  : "Events" , 
+		       "ADDNEW"    : "Create new Calendar event",
+		       "VIEWEDIT"  : "View and Edit events"		       
+		     },
+	 "EXAM":{
+		       "MainHead"  : "Exams" , 
+		       "ADDNEW"    : "Exams",
+		       "VIEWEDIT"  : "Exam schedules"		       
+		     } 	  ,
+	 "TT":{
+		       "MainHead"  : "TimeTable" , 
+		       "CLASSTT"    : "Class TimeTables",
+		       "TEACHERTT"  : "Teachers TimeTable Schedule"		       
+		     }	  ,
+	 "SUBJECTS":{
+		       "MainHead"  : "Subjects" , 
+		       "CLASSSUB"    : "Classes and subjects",
+		       "TEACHERSUB"  : "Teachers and subjects"		       
+		     }	,
+	  "MAILBOX":{
+		       "MainHead"  : "Mailbox" 
+		       	       
+		     }	 ,   
+	  "ACCOUNT":{
+		       "MainHead"  : "Account",
+		       "ADDADMIN" : "Add admin account" ,
+		       "ACCSETTINGS" : "Account settings"
+		       	       
+		     }		      	          
+		     		  
+    }
+  }
+}

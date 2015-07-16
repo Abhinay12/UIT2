@@ -1,0 +1,139 @@
+<div ng-controller="teacherHomeworkController">
+
+{{multipleStudents}}
+   <hr/>
+       <div class="panel ng-scope">
+   <div class="panel-body">
+   <fieldset>
+       
+          <div class="form-group">
+                        <label class="col-sm-2 control-label">Choose class</label>
+                        <div class="col-sm-1">
+                              <select class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                              </select>
+              
+                          
+                        </div>
+                       
+                     </div>
+           </fieldset>
+         <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Choose subject</label>
+                       <div class="col-sm-3">
+                            <select class="form-control" ng-model="selectedSubject" >
+                             <option ng-repeat="subject in gradesAndSubjects" value="{{subject.subjectName}}"> {{subject.subjectName}}</option>
+                      
+                            </select>
+                        
+                        </div>
+                    
+                     </div>
+             
+
+    </fieldset>
+              <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Homework type</label>
+                       <div class="col-sm-3">
+                           <input type="text" class="form-control" ng-model="homework">
+                          
+                        </div>
+                      
+                     </div>
+             
+
+    </fieldset>
+              
+       <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Task to do</label>
+                        <div class="col-sm-5">
+                        
+                            
+                            <textarea class="form-control" ng-model="message" placeholder="Enter homework description"></textarea>
+                         
+                        </div>
+                       
+                     </div>
+             
+
+    </fieldset>
+       
+       
+               <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Choose due date</label>
+                        <div class="col-sm-3">
+                           <p class="input-group">
+                              <input type="text" name="date" required="" datepicker-popup="{{format}}" ng-model="date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close"
+                              class="form-control" />
+                              <span class="input-group-btn">
+                                 <button type="button" ng-click="open($event)" class="btn btn-default">
+                                    <em class="fa fa-calendar"></em>
+                                 </button>
+                              </span>
+                           </p>
+                          
+                        </div>
+                
+                     </div>
+             
+
+    </fieldset>
+       
+       
+             <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Select students</label>
+                       <div class="col-sm-6">
+                  <label class="radio-inline c-radio">
+                     <input type="radio" ng-model="mode" checked="checked" value="g" name="i-radio" ng-click="allStudents=!allStudents" id="inlineradio1">
+                     <span class="fa fa-circle"></span>All students</label>
+                  <label class="radio-inline c-radio">
+                      <input type="radio"   ng-model="mode" value="s" name="i-radio" ng-click="allStudents=!allStudents" id="inlineradio2">
+                     <span class="fa fa-circle"></span>Selected students</label>
+                 
+                     
+                           <ui-select multiple="" ng-show="!allStudents" ng-model="multipleStudents.selectedStudents" theme="bootstrap" ng-disabled="disabled">
+                                                             <ui-select-match placeholder="Pick list of students .. Type to search">{{$item.studentName}} &lt;{{$item.ID}}&gt;</ui-select-match>
+                                                             <ui-select-choices repeat="student in studentList | propsFilter: {studentName: $select.search}">
+                                                                <div ng-bind-html="student.studentName | highlight: $select.search"></div>
+
+                                                             </ui-select-choices>
+                                                          </ui-select>
+               </div>
+                
+                     </div>
+             
+
+    </fieldset>
+    
+       
+                    <fieldset>
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                        
+                            <button class="btn btn-primary btn-sm" type="button" ng-click="sendHomework()">Save homework</button>
+                          
+                        </div>
+                
+                     </div>
+             
+
+    </fieldset>
+    <!-- Homework List -->
+
+    
+
+   
+   </div>
+</div>
+    
+    
+    
+    
+    
+</div>

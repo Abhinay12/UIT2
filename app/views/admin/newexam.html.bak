@@ -1,0 +1,229 @@
+<h3>Create new Exam
+   
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-heading">Enter exam details</div>
+   <div  class="panel-body">
+      <form form-wizard="" steps="4" novalidate="" ng-submit="alertSubmit()">
+         <div class="form-wizard wizard-horizontal">
+            <!-- START wizard steps indicator-->
+            <ol class="row">
+               <li ng-class="{'active':wizard.active(1)}" ng-click="wizard.go(1)" class="col-md-3">
+                  <h4>Exam Name</h4>
+                  <small class="text-muted">Enter Exam Name and other details here</small>
+               </li>
+               <li ng-class="{'active':wizard.active(2)}" ng-click="wizard.go(2)" class="col-md-3">
+                  <h4>Subjects</h4>
+                  <small class="text-muted">Choose subjects for exam</small>
+               </li>
+               <li ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-3">
+                  <h4>Syllabus & Schedule</h4>
+                  <small class="text-muted">Syllabus and exam schedule for each subject</small>
+               </li>
+               <li ng-class="{'active':wizard.active(4)}" ng-click="wizard.go(4)" class="col-md-3">
+                  <h4>Done!</h4>
+                  <small class="text-muted">Complete new Exam Wizard.</small>
+               </li>
+            </ol>
+            <!-- END wizard steps indicator-->
+            <!-- START Wizard Step inputs -->
+            <div ng-show="wizard.active(1)">
+               <fieldset>
+                  <legend>Exam</legend>
+                  <!-- START row -->
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label>Exam Name</label>
+                           <div class="controls">
+                               <input type="text" ng-model="ExamObj.examName" name="username" placeholder="Eg: First Term Model Examination for Class 5" class="form-control" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Exam Type</label>
+                           <div class="controls">
+                               <select class="form-control" ng-model="ExamObj.examType" name="">
+                                <option >General Class Exam</option>
+                                <option >Internal Exam</option>
+                                <option >External Exam</option>
+                                <option >Public Exam</option>
+                                <option >Class Test</option>
+                                <option >Model Exam</option>
+                                <option >Terminal Exam</option>
+                             </select>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                
+                           
+                  <label class="radio-inline c-radio">
+                      <input type="radio" checked="checked" ng-click="EType=1; ExamObj.schoolclass= null;" value="option1" name="i-radio" id="inlineradio1">
+                     <span class="fa fa-circle"></span>Class wise exam</label>
+                  <label class="radio-inline c-radio">
+                      <input type="radio" value="option2" ng-click="EType=2; ExamObj.grade= null;" name="i-radio" id="inlineradio2">
+                     <span class="fa fa-circle"></span>General class Exam </label>
+                 
+  
+                           <div class="controls col-md-4">
+                               <select ng-show="EType==1"  ng-model="ExamObj.grade" class="form-control"  ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" >
+                               </select>
+                               <select ng-show="EType==2"  ng-model="ExamObj.schoolclass" class="form-control"  ng-model="selectedClass" ng-options="item.gradeName for item in classList | unique:'gradeName'" >
+                               </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- END row -->
+               </fieldset>
+               <ul class="pager">
+                  <li class="next"><a href="#" ng-click="wizard.go(2)">Next <span>&rarr;</span></a>
+                  </li>
+               </ul>
+            </div>
+            <!-- END Wizard Step inputs -->
+            <!-- START Wizard Step inputs -->
+            <div ng-show="wizard.active(2)">
+               <fieldset>
+                  <legend>Subjects for Exams </legend>
+                  <!-- START row -->
+                  <div class="row">
+                     
+                                                                    <div class="form-group">
+                                                       <div class="col-md-2 col-sm-4">
+                                                          <p class="m0">Pick subjects</p>
+                                                       </div>
+                                                       <div class="col-md-5 col-sm-8">
+                                                          <ui-select multiple="" ng-model="multipleSubjects .selectedSubjects" theme="bootstrap" ng-disabled="disabled">
+                                                             <ui-select-match placeholder="Pick list of subjects for exam.. Type to search">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                                             <ui-select-choices repeat="subject in subjectList | propsFilter: {name: $select.search}">
+                                                                <div ng-bind-html="subject.name | highlight: $select.search"></div>
+
+                                                             </ui-select-choices>
+                                                          </ui-select>
+                                                       </div>
+                                                       <div class="col-md-5">
+                                                          <div class="text-sm text-muted mt-sm">Selected: {{multipleSubjects .selectedSubjects}}</div>
+                                                       </div>
+                                                    </div>
+                      
+                  </div>
+                  <!-- END row -->
+               </fieldset>
+               <ul class="pager">
+                  <li class="previous">
+                     <a href="#" ng-click="wizard.go(1)">
+                        <span>&larr; Previous</span>
+                     </a>
+                  </li>
+                  <li class="next"><a href="#" ng-click="wizard.go(3)">Next <span>&rarr;</span></a>
+                  </li>
+               </ul>
+            </div>
+            <!-- END Wizard Step inputs -->
+            
+            
+            
+            
+            
+            
+            
+            <!-- START Wizard Step inputs -->
+            <div ng-show="wizard.active(3)">
+               <fieldset>
+                  <legend>Syllabus and schedule for exams </legend>
+                  <!-- START row -->
+                  <div class="row"> 
+                                                        
+                          <table class="table {{ wizard2Loading }}">
+                                            
+                                            <thead>
+                                            <th>  Subject</th>
+                                            <th>Date of exam</th>
+                                            <th>Time</th>
+                                            <th>Syllabus</th>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="subject in multipleSubjects .selectedSubjects">
+                                                    <td> <strong> {{ subject.name }} </strong> </td>
+                                                    <td style="width:20%;"> 
+                                                             
+                                                         <input type="text" readonly="" placeholder="Event date" ng-model="eventDate" data-ng-options="datepickerOptions" my-date-picker class="form-control"/>
+                              
+                                                    </td>
+                                                    <td>
+                                                         <timepicker name="timepickr" required="" ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+                                                         <span ng-show="validateInput('timepickr', 'required')" class="text-danger">This field is invalid</span>
+                                                        
+                                                    </td>
+                                                   
+                                                    <td>
+                                                        <textarea class="form-control" ></textarea>
+                                                        
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                         </table>
+                  </div>
+                  <!-- END row -->
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+               </fieldset>
+               <ul class="pager">
+                  <li class="previous">
+                     <a href="#" ng-click="wizard.go(2)">
+                        <span>&larr; Previous</span>
+                     </a>
+                  </li>
+                  <li class="next"><a href="#" ng-click="wizard.go(4)">Next <span>&rarr;</span></a>
+                  </li>
+               </ul>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- END Wizard Step inputs -->
+            <!-- START Wizard Step inputs -->
+            <div ng-show="wizard.active(4)">
+               <div class="jumbotron">
+                  <h1>Done!</h1>
+                  <p>
+                      Exam details and subject schedules have been saved.. 
+                      
+                  </p>
+                  <p>
+                     <input type="submit" value="You can Proceed Now" class="btn btn-info btn-lg" />
+                  </p>
+               </div>
+               <ul class="pager">
+                  <li class="previous">
+                     <a href="#" ng-click="wizard.go(3)">
+                        <span>&larr; Previous</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <!-- END Wizard Step inputs -->
+         </div>
+      </form>
+   </div>
+</div>
+<!-- END panel -->
+
+

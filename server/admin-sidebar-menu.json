@@ -1,0 +1,123 @@
+[
+  {
+    "text": "Main Menu",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Dashboard",
+    "sref": "admin.home",
+    "icon": "icon-speedometer",
+    "translate": "sidebar.nav.DASH"
+  },
+  {
+    "text": "Classes",
+    "sref": "admin.classes",
+    "icon": "icon-home",
+    "translate": "sidebar.nav.CLASSES.MainHead" 
+    
+  },
+ 
+		  {
+		    "text":      "Students",          
+		    "sref":      "admin.students",      
+		    "icon":      "icon-users",
+		    "translate"    :"sidebar.nav.STUDENTS.MainHead"    
+		                          
+		  }
+   ,
+   
+			           {               
+			                    "text": "Teachers", 
+						        "sref": "admin.Teachers", 
+						        "translate": "sidebar.nav.TEACHER.MainHead",
+								"icon" : "icon-user-follow"
+								
+				       }
+,				       
+				       
+				       {
+						    "text":      "Events",          
+						    "sref":      "admin.Events",      
+						    "icon":      "icon-calendar",
+						    "translate"    :"sidebar.nav.EVENTS.MainHead"    
+						   
+						                 },
+                                                                 {
+						    "text":      "Notice",          
+						    "sref":      "admin.notice",      
+						    "icon":      "fa fa-flag"
+						   
+						                 }
+                                                                  ,
+                             {
+						    "text":      "Exams And Schedules",          
+						    "sref":      "admin.Exams",      
+						    "icon":      "icon-book-open",
+						    "translate"    :"sidebar.nav.EXAM.MainHead"   
+						                 } 
+						  ,
+						  
+						  {
+						    "text":      "TimeTables",          
+						    "sref":      "admin.TimeTables",      
+						    "icon":      "icon-grid",
+						    "translate"    :"sidebar.nav.TT.MainHead"    
+						   
+						                 }               
+                       ,
+                        {
+						    "text":      "Subjects",          
+						    "sref":      "admin.Subjects",      
+						    "icon":      "icon-notebook",
+						    "translate"    :"sidebar.nav.SUBJECTS.MainHead"   
+						                 } ,
+					
+					
+					
+				  {
+                                      "text": "Payments" ,
+                                      "sref" : "admin.Payments" ,
+                                      "icon" : "icon-credit-card",
+                                      "translate" : ""
+                                      
+                                      
+                                      
+                                  },
+                                  
+                                  
+                                  
+                                  
+				      	{
+						    "text":      "Mailbox",          
+						    "sref":      "admin.mailbox.folder",   
+                                                    "params": {"folder": "inbox"} ,
+						    "icon":      "icon-envelope-letter",
+						    "translate"    :"sidebar.nav.MAILBOX.MainHead"    
+				  }	,
+                                   {
+						    "text":      "Gallery",          
+						    "sref":      "admin.gallery",      
+						    "icon":      "icon-grid"
+				                              
+				  
+				  }	
+				  ,
+				  
+				  {
+						    "text":      "Account",          
+						    "sref":      "admin.gallery",      
+						    "icon":      "icon-settings",
+						    "translate"    :"sidebar.nav.ACCOUNT.MainHead" 
+				                              
+				  
+				  }	
+				  
+				  
+				  
+				  
+				  
+				                    
+]
+
+

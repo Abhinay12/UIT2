@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Main Menu",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Home",
+    "sref": "parent.home.dashboard",
+    "icon": "icon-home"
+  },
+   {
+    "text": "Homeworks",
+    "sref": "parent.home.homeworks",
+    "icon": "fa fa-tasks"
+    
+  }
+  ,
+  {
+    "text": "Attendance",
+    "sref": "parent.home.attendance",
+    "icon": "icon-user-following"
+    
+  }
+,
+
+		  {
+		    "text":      "TimeTable",          
+		    "sref":      "parent.home.timetable",      
+		    "icon":      "fa fa-calendar"
+		                          
+		  }
+   ,
+   
+			           {               
+			                    "text": "Exams", 
+						        "sref": "parent.home.exams", 
+						  
+								"icon" : "fa fa-file-text-o"
+								
+				       },
+				       
+				       
+				       {
+						    "text":      "Notice",          
+						    "sref":      "parent.home.notice",      
+						    "icon":      "fa fa-flag"
+						   
+						                 }
+                          ,
+                             {
+						    "text":      "Mail",          
+						    "sref":      "parent.home.mail.folder", "params": {"folder": "inbox"} ,
+						    "icon":      "fa icon-envelope-open"
+                             },
+						  
+						  {
+						    "text":      "Calendar",          
+						    "sref":      "parent.home.calendar",      
+						    "icon":      "fa icon-calendar"   
+						   
+						                 }               
+                       ,
+                        {
+						    "text":      "Transport",          
+						    "sref":      "parent.home.transport",      
+						    "icon":      "fa fa-bus"  
+						                 } ,
+					
+					
+					
+				 
+				  
+				  {
+						    "text":      "Account Settings",          
+						    "sref":      "parent.home.profile",      
+						    "icon":      "icon-settings"
+				                              
+				  
+				  }	
+				  
+				  
+				  
+				  
+				  
+				                    
+]

@@ -1,0 +1,227 @@
+    
+<h4>Fee payment schedule</h4>
+
+<hr/>
+        
+  <div class="col-sm-5 {{}}" >
+         
+            <div class="form-group">
+               <label class="col-sm-5 control-label">Select Class {{  }}</label>
+             
+                         
+               <select  style="width: 20%;" class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+               
+               
+               
+            </div>
+
+       <div class="form-group">
+               <label class="col-sm-5 control-label">Select Fee {{  }}</label>
+             
+                         
+               <select  class="form-control" ng-model="selectedFee" ng-options="item.type.feesType for item in feeList" name="selectedClass">
+                      
+                  </select>
+               
+               
+               
+            </div>
+      
+      <div class="form-group">
+               <label class="col-sm-5 control-label">Year {{  }}</label>
+             
+                         
+               <select class="form-control"  style="width: 20%;"  name="selectedClass">
+                   <option selected="">2015</option>
+                  </select>
+               
+               
+               
+            </div>
+      
+      
+          <div class="form-group">
+               <label class="col-sm-5 control-label">Total Fee :{{  }}</label>
+             
+                         
+              <h4> <em class="fa fa-rupee"></em>   {{ selectedFee.totalFee }}</h4>
+              
+                 
+             
+            </div>
+ 
+     <div class="form-group">
+               <label class="col-sm-5 control-label">Term:{{  }}</label>
+             
+                         
+              <h4>    Monthly</h4>
+              
+                 
+             
+            </div>
+ 
+   </div>
+    
+    
+          
+            <div class="table-responsive col-sm-12">
+          <hr/> 
+      <table id="table-ext-1" class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Picture</th>
+               <th>Name</th>
+               <th>Payment Scheme</th>
+               <th>Apr</th>
+               <th>May</th>
+               <th>Jun</th>
+               <th>Jul</th>
+               <th>Aug</th>
+               <th>Sep</th>
+               <th>Oct</th>
+               <th>Nov</th>
+               <th>Dec</th>
+               <th>Jan</th>
+               <th>Feb</th>
+               <th>Mar</th>
+               
+            
+            </tr>
+         </thead>
+         <tbody>
+             <tr ng-repeat="student in selectedClass.student | orderBy : 'studentName'">
+               <td>{{ $index + 1 }}</td>
+               <td>
+                  <div class="media">
+                     <img src="app/img/user/0{{$index+1}}.jpg" alt="Image" class="img-responsive img-circle" />
+                  </div>
+               </td>
+               <td>{{ student.studentName }}</td>
+               <td> {{ $index%2==0 ? "Monthly" : "Quarterly" }} </td>
+               
+               <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+                   <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>   
+               <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>  <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+          <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+           <td>
+                   <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+                   
+               </td>
+         
+ 
+         
+               
+               
+               
+               
+               
+            </tr>
+         
+         </tbody>
+      </table> 
+                
+      
+            </div>
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

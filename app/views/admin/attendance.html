@@ -1,0 +1,340 @@
+
+<div ng-controller="adminAttendanceController">
+    
+
+    
+    <!-- START panel-->
+      <div id="panelDemo14" class="panel panel-default">
+         <div class="panel-heading">Teacher Attendance</div>
+         <div class="panel-body">
+            <tabset>
+               <tab heading="Add Teacher attendace">
+                
+                                    
+                                                   <div class="panel-heading"></div>
+                                                   <div class="panel-body">
+                                                      <form class="form-horizontal ng-pristine ng-valid">
+                                                         <div class="form-group">
+                                                            <label class="col-lg-2 control-label">Choose Date</label>
+                                                            <div class="col-lg-4">
+                                                              
+                                                                                <p class="input-group">
+                                                                                 <input type="text" name="date" required="" datepicker-popup="{{format}}" ng-model="date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close"
+                                                                                 class="form-control" />
+                                                                                 <span class="input-group-btn">
+                                                                                    <button type="button" ng-click="open($event)" class="btn btn-default">
+                                                                                       <em class="fa fa-calendar"></em>
+                                                                                    </button>
+                                                                                 </span>
+                                                                              </p>
+                                                                
+                                                                
+                                                            </div>
+                                                         </div>
+                                                   
+                                                   
+                                                      </form>
+                                                   </div>
+                                                   
+                                                   <div class="table-responsive">
+                                                       <h4> Attendence entry </h4> 
+                                                                            <table id="table-ext-1" class="table table-bordered table-hover">
+                                                                              
+                                                                               <thead>
+                                                                                  <tr>
+                                                                                     <th>No</th>
+                                                                                     <th>Picture</th>
+                                                                                 
+                                                                                     <th>First Name</th>
+                                                                                 
+                                                                                     <th check-all="check-all"> Select all
+                                                                                        <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+                                                                                           <label>
+                                                                                              <input type="checkbox" />
+                                                                                              <span class="fa fa-check"></span>
+                                                                                           </label>
+                                                                                        </div>
+                                                                                     </th>
+                                                                                  </tr>
+                                                                               </thead>
+                                                                               <tbody>
+                                                                                   <tr ng-repeat="teacher in teachersList | orderBy : 'teacherName'">
+                                                                                     <td>{{ $index+1 }}</td>
+                                                                                     <td>
+                                                                                        <div class="media">
+                                                                                           <img src="app/img/user/0{{$index+1}}.jpg" alt="Image" class="img-responsive img-circle" />
+                                                                                        </div>
+                                                                                     </td>
+                                                                                  
+                                                                                     <td>{{ teacher.teacherName }}</td>
+                                                                                    
+                                                                                     <td>
+                                                                                        <div class="checkbox c-checkbox">
+                                                                                           <label>
+                                                                                              <input type="checkbox" />
+                                                                                              <span class="fa fa-check"></span>
+                                                                                           </label>
+                                                                                        </div>
+                                                                                     </td>
+                                                                                  </tr>
+                                                                                
+                                                                     
+                                                                               </tbody>
+                                                                            </table>
+                                                       <div class="panel-body">
+            <!-- Success button with label -->
+            <button class="btn btn-labeled btn-success" type="button">
+               <span class="btn-label"><i class="fa fa-check"></i>
+               </span>Save checked as Present</button>
+            <!-- Danger button with label -->
+            <button class="btn btn-labeled btn-danger" type="button">
+               <span class="btn-label"><i class="fa fa-times"></i>
+               </span>Save checked as Absent</button>
+          
+         </div>
+                                                                   </div>
+                                       
+               </tab>
+                <tab heading="Teacher attendance list">
+                    
+                   
+                    
+                    <!-- Attendance details tab -->
+                                                                        <h4> Attendance information for the month $monthName</h4> 
+
+                                                     <!--
+                                                      Show Attendance here here in ng table
+                                                     -->
+
+
+                                                     <hr/>
+
+
+
+                                                     <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                        <div class="col-lg-4">
+
+
+
+
+
+                                                 <div class="panel widget">
+
+                                                             <div class="col-xs-12 ">
+                                                                <div class="row row-table row-flush">
+                                                                   <div class="col-xs-4 text-right text-info">
+                                                                      <em class="icon-user-following fa-2x"></em>
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-left">
+                                                                         <h4 class="mt0"> 
+                                                                            <!-- Student name here -->
+                                                                             Mathew 
+
+                                                                         </h4>
+                                                                         <p class="mb0 text-muted">Classes 5A , 5B , 6A , 9A</p>
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+
+
+
+                                                       </div>                
+
+
+
+
+
+
+
+
+                                                       <!-- START widget-->
+                                                       <div class="panel widget">
+                                                          <div class="row row-table row-flush">
+                                                             <div class="col-xs-6 bb br">
+                                                                <div class="row row-table row-flush">
+                                                                   <div class="col-xs-4 text-center text-info">
+                                                                      <em class="fa icon-calendar fa-2x"></em>
+                                                                      <em class="fa icon-action-redo fa-2x"></em>
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-center">
+                                                                          <p class="mb0 text-muted">Date from</p>
+                                                                         <h4 class="mt0">01-May-2015</h4>
+
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+                                                             <div class="col-xs-6 bb">
+                                                                <div class="row row-table row-flush">
+                                                                   <div class="col-xs-4 text-center text-info">
+                                                                      <em class="fa icon-action-undo fa-2x"></em>
+                                                                       <em class="fa icon-calendar fa-2x"></em>
+
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-center">
+
+                                                                         <p class="mb0 text-muted">Date upto</p>
+                                                                           <h4 class="mt0">31-May-2015</h4>  
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+                                                          </div>
+                                                          <div class="row row-table row-flush">
+                                                             <div class="col-xs-6 br">
+                                                                <div class="row row-table row-flush">
+                                                                  <div class="col-xs-4 text-center text-green">
+
+                                                                       <em class="fa icon-calendar fa-2x"></em>
+                                                                       <em class="fa fa-check-circle fa-2x"></em>
+
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-center">
+
+                                                                         <p class="mb0 text-muted">Total Present Days</p>
+                                                                             <h4 class="mt0">16</h4>
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+                                                             <div class="col-xs-6">
+                                                                <div class="row row-table row-flush">
+                                                                   <div class="col-xs-4 text-center text-danger">
+                                                                       <em class="fa icon-calendar fa-2x"></em>
+                                                                       <em class="fa fa-times fa-2x"></em>
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-center">
+                                                                          <p class="mb0 text-muted">Total Absent Days</p>
+                                                                         <h4 class="mt0">10</h4>
+
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+                                                          </div>
+
+
+
+                                                            <div class="row row-table row-flush">
+                                                             <div class="col-xs-12 ">
+                                                                <div class="row row-table row-flush">
+                                                                  <div class="col-xs-4 text-right text-green">
+
+                                                                       <em class="fa icon-calendar fa-2x"></em>
+
+
+                                                                   </div>
+                                                                   <div class="col-xs-8">
+                                                                      <div class="panel-body text-left">
+
+                                                                         <p class="mb0 text-muted">Total school working  Days</p>
+                                                                             <h4 class="mt0">26</h4>
+                                                                      </div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+
+                                                          </div>
+
+
+
+                                                       </div>
+                                                       <!-- END widget-->
+
+
+                                                       <!-- START widget-->
+
+                                                       <!-- END widget-->
+
+                       
+                    <!-- End of attendance details -->   
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+  </div>
+                   
+                   
+                   
+                 
+                  <div class="panel-title">Absent dates</div>
+               </div>
+               <!-- START list group-->
+               <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 340px;"><scrollable class="list-group" height="180" style="overflow: hidden; width: auto; height: 180px;">
+                 
+                       
+                       
+                       <!-- START list absent date item-->
+                  <a class="list-group-item" href="#">
+                     <div class="media-box">
+                        
+                        <div class="media-box-body clearfix">
+                           <small class="pull-right">No Reason</small>
+                           <strong class="media-box-heading text-primary">
+                              <span class="circle circle-danger circle-lg text-left"></span>11-May-2015 , Monday</strong>
+                           <p class="mb-sm">
+                              <small></small>
+                           </p>
+                        </div>
+                     </div>
+                  </a>
+                   
+                       
+                   <a class="list-group-item" href="#">
+                     <div class="media-box">
+                        
+                        <div class="media-box-body clearfix">
+                           <small class="pull-right">Fever</small>
+                           <strong class="media-box-heading text-primary">
+                              <span class="circle circle-danger circle-lg text-left"></span>12-May-2015 , Tuesday</strong>
+                           <p class="mb-sm">
+                              <small></small>
+                           </p>
+                        </div>
+                     </div>
+                  </a>
+                       
+                       
+                  <!-- END absent date item-->
+                  
+                  
+                  
+                  
+               
+                  <!-- END list group item-->
+               </scrollable><div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(0, 0, 0); width: 7px; position: absolute; top: 63px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 103.514px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+               <!-- END list group-->
+        
+            </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </tab>
+               </tabset>
+         </div>
+      </div>
+      <!-- END panel-->
+      
+    
+</div>
+    

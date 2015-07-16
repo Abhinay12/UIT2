@@ -1,0 +1,43 @@
+<!-- top navbar-->
+<header ng-include="'app/views/parent/partials/top-navbar.html'" class="topnavbar-wrapper" ng-init="app.layout.isCollapsed = true"></header>
+<!-- sidebar-->
+<aside ng-include="'app/views/parent/partials/sidebar.html'" ng-controller="SidebarController" class="aside"></aside>
+<!-- offsidebar-->
+<aside ng-include="'app/views/parent/partials/offsidebar.html'" class="offsidebar"></aside>
+<!-- Main section-->
+<section>
+   <!-- Page content-->
+   
+   <div  autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper">
+      
+
+       <h3 class="ng-scope" >
+   <!-- START Language list-->
+   
+   <div class="pull-right">Switch Child
+      <div class="btn-group" is-open="language.listIsOpen" dropdown="">
+         <button class="btn btn-default ng-binding" dropdown-toggle="" type="button" aria-haspopup="true" aria-expanded="false">Rohith
+            <span class="caret"></span>
+         </button>  
+         <ul class="dropdown-menu dropdown-menu-right animated fadeInUpShort" role="menu">
+            <!-- ngRepeat: (localeId, langName) in language.available --><li ng-repeat="(localeId, langName) in language.available" class="ng-scope"><a href="#" ng-click="language.set(localeId, $event)" class="ng-binding">Rohith</a>
+   
+         </ul>
+      </div>
+   </div>
+   <!-- END Language list    -->
+   Dashboard
+   <small class="ng-binding">Welcome to MyChild !</small>
+  <!-- START row-->
+</h3>
+ <ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="/app/views/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+
+       <div ui-view="" autoscroll="false" ng-class="app.viewAnimation" >
+           
+       </div>   
+       
+       
+   </div>
+</section>
+<!-- Page footer-->
+<footer ng-include="'app/views/parent/partials/footer.html'"></footer>

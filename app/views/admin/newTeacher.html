@@ -1,0 +1,45 @@
+<div class="col-sm-8">
+      <!-- START panel-->
+  
+         <div class="panel-heading">Enter new teacher Data here</div>
+         <div class="panel-body">
+            <form class="form-horizontal ng-pristine ng-valid">
+                   
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Name</label>
+                  <div class="col-lg-7">
+                      <input ng-model="teacherRegister.teacherName" type="text" class="form-control" placeholder="Eg: John Doe">
+                  </div>
+               </div>
+                
+                
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-7">
+                      <input ng-model="teacherRegister.teacherEmailId" type="email" class="form-control" placeholder="eg: teacher@example.com">
+                  </div>
+               </div>
+                
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Phone No</label>
+                  <div class="col-lg-7">
+                      <input ng-model="teacherRegister.phoneNo" type="text" class="form-control" placeholder="9895000001">
+                  </div>
+               </div>
+                
+                  
+                
+                
+                
+               <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-info" type="submit" ng-click="saveTeacher(teacherRegister)" > Submit </button>
+                  </div>
+               </div>
+            </form>
+         </div>
+    
+   
+      <!-- END panel-->
+   </div>
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

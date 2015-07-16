@@ -1,0 +1,75 @@
+ <style type='text/css'>
+    .button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 200px;
+    height: 65px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+  </style>
+
+<div class="col-sm-8">
+      <!-- START panel-->
+     
+         <div class="panel-heading">Upload teacher evaluation excel sheet</div>
+         <div class="panel-body">
+            <form role="form" class="ng-pristine ng-valid">
+               <div class="form-group">
+                  <label>Select Teacher</label>
+                     <select class="form-control" ng-model="uploaddata.teacher" ng-options="item.teacherName for item in teachersList">
+                       
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label>Select year</label>
+                  <select class="form-control" ng-model="uploaddata.year">
+                      <option ng-repeat="y in years">{{ y }}</option>
+                      
+                  </select>
+               </div>
+                
+                 <div class="form-group">
+                     
+   <!--               on file change:
+    <div class="bootstrap-filestyle input-group">
+                  <div class="button" ngf-select ngf-change="upload($files,uploaddata.teacher.teacherId,uploaddata.year)" ngf-multiple="multiple">Select File</div>
+    
+    </div>
+   -->
+   <label>Select excel file to upload</label>
+    <div class="bootstrap-filestyle input-group"><input type="text" disabled="" class="form-control "> <span ngf-select ngf-change="upload($files,uploaddata.teacher.teacherId,uploaddata.year)" class="group-span-filestyle input-group-btn" tabindex="0"><label class="btn btn-default " for="filestyle-1"><span class="glyphicon glyphicon-folder-open"></span> Select excel file to upload</label></span></div>
+   <!-- Drop File:
+    <div ngf-drop ngf-select ng-model="files" class="drop-box" 
+        ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+        accept="image/*,application/pdf">Drop pdfs or images here or click to upload</div>
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+   --> 
+   Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+    </ul>
+    Upload Log:
+    <pre>{{log}}</pre>
+               </div>
+              
+     
+            </form>
+         </div>
+         
+     
+      <!-- END panel-->
+   </div>   

@@ -1,0 +1,210 @@
+
+<div ui-view="">
+
+    <div ng-controller="teacherHomeController">    
+
+
+
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel panel-green">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa fa-tasks fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Assign Task</h3></div>
+                  <p class="m0">New Tasks!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" ui-sref="teacher.home.homeworks">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel panel-warning">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="icon-user-following fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Attendance</h3></div>
+                  <p class="m0">New Orders!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.attendance">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel panel-danger">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa fa-calendar fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Time Table</h3></div>
+                  <p class="m0">Support Tickets!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.timetable">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+       <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel panel-primary">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa fa-file-text-o fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Exams</h3></div>
+                  <p class="m0">New Comments!</p>
+               </div>
+            </div>
+         </div>
+         <a  ui-sref="teacher.home.exams" class="panel-footer bg-gray-dark bt0 clearfix btn-block">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+         <!-- END panel-->
+      </div>
+   </div>
+</div>
+
+
+
+<div class="row ng-scope">
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel bg-purple-dark">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa fa-flag fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Notice</h3> </div>
+                  <p class="m0">New Comments!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.notice">
+             <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+         <!-- END panel-->
+      </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel panel-green">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa icon-envelope-open fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Mail</h3></div>
+                  <p class="m0">New Tasks!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.mail">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel bg-primary-light">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa icon-calendar fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Calendar</h3></div>
+                  <p class="m0">New Orders!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.calendar">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+   <div class="col-lg-3 col-md-6">
+      <!-- START panel-->
+      <div class="panel bg-purple">
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-xs-3">
+                  <em class="fa fa-bus fa-5x"></em>
+               </div>
+               <div class="col-xs-9 text-right">
+                   <div class="text-lg"><h3>Transport</h3></div>
+                  <p class="m0">Support Tickets!</p>
+               </div>
+            </div>
+         </div>
+         <a class="panel-footer bg-gray-dark bt0 clearfix btn-block"  ui-sref="teacher.home.transport">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right">
+               <em class="fa fa-chevron-circle-right"></em>
+            </span>
+         </a>
+      </div>
+      <!-- END panel-->
+   </div>
+</div>
+
+        
+</div>        
+</div>
+
+
+
+
+
+
+
+
+ 

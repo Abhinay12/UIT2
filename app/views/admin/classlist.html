@@ -1,0 +1,58 @@
+<div >
+
+                                    <div class="panel panel-default  {{ dataLoad }}">
+                                                                            <div class="panel-heading">
+                                                                                <div>
+                                                                 
+                                                                               <div class="col-lg-6">
+                                                                                                        <div class="form-group">
+               <label class="col-sm-5 control-label">Select Class {{  }}</label>
+             
+                         
+               <select  style="width: 30%;" class="form-control" ng-model="selectedClass" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+               
+               
+               
+            </div>
+                                                                               
+                                                                                   </div>
+                                                                                 <div class="col-lg-6">
+                  <input type="text" class="form-control" style="width:50%; " placeholder="Search here" ng-model="search" /> 
+                                                                                </div>                                                                        
+                                                                                  
+                     
+.
+                                                                                 <a ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv" class="pull-right btn btn-sm btn-info">Export to CSV</a>
+                                                                                 <div ng-if="gradeFilter" class="panel-title">Classes</div>
+                                                                            </div>
+                                                                            <div class="table-responsive ">
+                                                                             
+                                                                             <table ng-table="table.tableParams" export-csv="csv"  class="table table-bordered table-striped">
+                                                                                
+                                                                            
+                                                                                   
+                                                                                
+                                                                                   <tr ng-repeat="s in filteredPeople = (selectedClass.student | filter:search:strict| orderBy : 'studentName') ">
+                                                                                       <label title="{s}" />
+                                                                                      
+                                                                                       <td data-title ="'RegNo'" align="center" >{{s.registerNumber}}</td>
+                                                                                        <td data-title ="'Name'" align="center" >{{s.studentName}}</td>
+                                                                                        <td data-title ="'Gender'" align="center" >{{ s.gender }} </td>
+                                                                                           <td data-title ="'Dob'" align="center" >{{ s.dob | cmdate:'dd-MMM-yyyy' }}</td>
+                                                                                         
+                                                                                           <td data-title ="'Mode of transport'" align="center" >{{ s.modeOfTransport }}</td>
+                                                                                             <td data-title ="'Blood Group'" align="center" >{{ s.bloodGroup }}</td>
+                                                                                               <td data-title ="'Medical condition(if any)'" align="center" >{{ s.medicalCondition }}</td>
+                                                                                                 <td data-title ="'Fee type'" align="center" >{{ s.feeType }}</td>
+                                                                                                 <td data-title=""><a ui-sref="admin.students.edit({sid : s.studentId})">view/edit</a></td>
+                                                                                                 
+                                                                                          
+                                                                                     </tr>
+                                                                            
+                                                                               </table>
+                                                                            </div>
+                                  </div>
+    {{ $data }}
+</div>    

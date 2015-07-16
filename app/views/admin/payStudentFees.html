@@ -1,0 +1,68 @@
+<div class="col-sm-9">
+      <!-- START panel-->
+      <div class="panel panel-default">
+         <div class="panel-heading">Fee Payment </div>
+         <div class="panel-body">
+            <form class="form-horizontal ng-pristine ng-valid">
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Class</label>
+                  <div class="col-lg-7">
+                    
+                      <select  style="width: 20%;" class="form-control" ng-model="selectedClass"  ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+                      
+                  </div>
+               </div>
+                
+                
+                
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Student</label>
+                  <div class="col-lg-7">
+                      <select  class="form-control" ng-model="selectedStudent" ng-options="item.studentName for item in selectedClass.student | orderBy:'studentName'" name="selectedClass">
+                      
+                  </select>
+               
+                  </div>
+               </div>
+                
+                     <div class="form-group">
+                  <label class="col-lg-2 control-label">Fees</label>
+                  <div class="col-lg-7">
+                    <select  class="form-control" ng-model="selectedFee" ng-options="item.type.feesType for item in feeList" name="selectedClass">
+                      
+                  </select>
+               
+                  </div>
+               </div>
+                
+                  <div class="form-group">
+                  <label class="col-lg-2 control-label">Year</label>
+                  <div class="col-lg-7">
+                      <select class="form-control">
+                          <option>2015</option>
+                          <option>2016</option>
+                          <option>2017</option>
+                          
+                      </select>
+                  </div>
+               </div>
+                 <div class="form-group">
+                  <label class="col-lg-2 control-label ">Amount paid:</label>
+                  <div class="col-lg-3">
+                      <input type="number" min="1" class="form-control" placeholder="Fee Amount"> 
+                  </div>
+               </div>
+                
+           
+               <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                     <button class="btn btn-sm btn-info" type="submit"> Pay Fees </button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>

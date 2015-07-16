@@ -1,0 +1,571 @@
+
+<div class="row" ng-controller="saveStudentController"> {{ studentData }}
+   
+               <div class="col-md-12">
+                   <div class="box-placeholder">
+                          <div class="form-wizard wizard-vertical"> 
+                      
+                              <form steps="4" form-wizard="" class="ng-pristine ng-valid ng-scope">
+               <div class="form-wizard wizard-vertical">
+                  <!-- START wizard steps indicator-->
+                  <ol style="width: 25%;">
+                     <li ng-click="wizard.go(1)" ng-class="{'active':wizard.active(1)}" class="active">
+                        <h4 class="mb0">Basic Info</h4>
+                     </li>
+                     <li ng-click="wizard.go(2)" ng-class="{'active':wizard.active(2)}" class="">
+                        <h4 class="mb0">Address</h4>
+                     </li>
+                     <li ng-click="wizard.go(3)" ng-class="{'active':wizard.active(3)}" class="">
+                        <h4 class="mb0">Parent Details</h4>
+                     </li>
+                     <li ng-click="wizard.go(4)" ng-class="{'active':wizard.active(4)}" class="">
+                        <h4 class="mb0">Done!</h4>
+                     </li>
+                  </ol>
+                  <!-- END wizard steps indicator-->
+                  <!-- START Wizard Step inputs --> 
+                  <div ng-show="wizard.active(1)" class="col-sm-3" style="width: 75%;">
+                     <fieldset>
+                    
+                         
+                         
+                         <!-- Basic info -->
+                         
+                                                           
+                                    
+                                            <fieldset>
+
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Registration No</label>
+                                                  <div class="col-sm-7">
+                                                      <input ng-model="studentData.student.registerNumber" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+
+
+
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Name</label>
+                                                  <div class="col-sm-7">
+                                                        <input ng-model="studentData.student.studentName" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                               </div>
+                                            </fieldset>
+
+
+
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Gender</label>
+                                                  <div class="col-sm-7">
+
+                                                     <label class="radio-inline c-radio">
+                                                         <input id="inlineradio1" ng-model="studentData.student.gender" name="i-radio" value="Male" checked="checked" type="radio">
+                                                        <span class="fa fa-circle"></span>Male</label>
+                                                     <label class="radio-inline c-radio">
+                                                        <input id="inlineradio2" name="i-radio" ng-model="studentData.student.gender" value="Female" type="radio">
+                                                        <span class="fa fa-circle"></span>Female</label>
+
+
+                                               </div>
+                                            </fieldset> 
+
+
+
+
+
+                                              <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">No of Siblings</label>
+                                                  <div class="col-sm-7">
+                                                      <input type="text" style="width: 15%;" max="5" min="10"  class="form-control " ng-model="studentData.student.no_of_siblings" required="" name="number">
+                                               </div>
+                                               </div>
+                                            </fieldset>
+
+                                               <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Date of Birth</label>
+                                                  <div class="col-sm-7">
+                                                      <p class="input-group">
+                             
+
+                                                          <input type="text" ng-model="dob" readonly  id="dob"  placeholder="dd-mm-yyyy" data-ng-options="datepickerOptions" my-date-picker class="form-control" />
+                                                                          
+                                                                              </p>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                         
+                                           <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Class</label>
+                                                  <div class="col-sm-7">
+                                                                    
+                                                      <select class="form-control"  ng-model="selectedClass" ng-change="studentData.student.gradeId = selectedClass.gradeId" ng-options="item.gradeName+item.section for item in classList" name="selectedClass">
+                      
+                  </select>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                         <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Blood Group</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control"  ng-model="studentData.student.bloodGroup">
+                                                          <option>A+</option>
+                                                          <option>A-</option>
+                                                          <option>B+</option>
+                                                          <option>B-</option>
+                                                          <option>AB+</option>
+                                                          <option>AB-</option>
+                                                          <option>O+</option>
+                                                          <option>O-</option>
+                      
+                                                         </select>
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                                             <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Mode of Transport</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="studentData.student.modeOfTransport">
+                                                          <option>Bus</option>
+                                                          <option>Own vehicle</option>
+                                                          <option>Other</option>
+                                                         
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                          <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Fee Type</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="studentData.student.feeType">
+                                                          <option>Monthly</option>
+                                                          <option>Quarterly</option>
+                                                          <option>Half Yearly</option>
+                                                          <option>Yearly</option>
+                                                         
+                                                         
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+                          <fieldset>
+                                               <div class="form-group">
+                                                  <label class="col-sm-4 control-label">Physically Challenged</label>
+                                                  <div class="col-sm-2">
+                                                                    
+                                                      <select class="form-control" ng-model="studentData.student.medicalCondition">
+                                                          <option>No</option>
+                                                          <option>Yes</option>
+                                                          
+                      
+                                                         </select>
+                              
+
+
+                                                  </div>
+                                               </div>
+                                            </fieldset>
+
+
+
+
+
+                                       <!--
+
+                                             <div class="panel-footer text-center">
+                                                 <button class="btn btn-info" role="button" ng-click="show(studentData)">Save Student details </button>
+                                                      <button class="btn btn-info" type="reset">Clear data      </button>
+                                                  </div>
+
+                                      -->
+                                        
+                                  
+
+                         <!-- end basic info -->
+                         
+                         
+                         
+                         
+                         
+                         
+                     </fieldset>
+                     <ul class="pager">
+                        <li class="next"><a ng-click="wizard.go(2)" href="#">Next <span>→</span></a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- END Wizard Step inputs -->
+                  
+                  
+                  
+                  
+                  <!-- START Wizard Step inputs -->
+                  <div ng-show="wizard.active(2)" class="ng-hide" style="width: 75%;">
+                     
+                      <!--  -->
+                                                             
+                                           
+                                                   <div class="panel-body">
+                                                  
+                                                          <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Address</label>
+                                                                   <div class="col-sm-7">
+                                                                       <textarea class="form-control" ng-model="studentData.address.address" placeholder="enter full address "></textarea>
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>
+                                                                  <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Place</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input  type="text" ng-model="studentData.address.place" placeholder="enter place" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>          <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Landmark</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input  placeholder="enter landmark" ng-model="studentData.address.landmark   " type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>          <fieldset>
+
+                                                                <div class="form-group">
+                                                                   <label class="col-sm-4 control-label">Land Line</label>
+                                                                   <div class="col-sm-7">
+                                                                       <input ng-model="studentData.address.landline" placeholder="enter landLine number" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched">
+                                                                   </div>
+                                                                </div>
+                                                             </fieldset>
+                                                   </div>
+                                                
+                                                               <ul class="pager">
+                        <li class="previous">
+                           <a ng-click="wizard.go(1);" href="#">
+                              <span>← Previous</span>
+                           </a>
+                        </li>
+                        <li class="next"><a ng-click="wizard.go(3)" href="#">Next <span>→</span></a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- END Wizard Step inputs -->
+                  
+                  
+                  <!-- PARENT DETAILS -->
+                  
+                  
+                  
+                  <!-- START Wizard Step inputs -->
+                  <div ng-show="wizard.active(3)" class="ng-hide" style="width: 75%;">
+                     
+                      
+                      
+                      
+                      
+                                                                
+                      
+                      
+                      <div class="panel panel-default" style="display: none;">
+                                                                       <div class="panel-heading">Mother’s Details</div>
+                                                                       <div class="panel-body">
+                                                                          <form class="form-horizontal ng-pristine ng-valid">
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text"  class="form-control" placeholder="Enter Mother's name">
+                                                                                </div>
+                                                                             </div>
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">EMail Id </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                                                            
+                                                                          </form>
+                                                                       </div>
+                                                                    </div>
+                      
+                      
+                         <div class="panel panel-default">
+                                                                       <div class="panel-heading">Father’s Details</div>
+                                                                       <div class="panel-body">
+                                                                          <form class="form-horizontal ng-pristine ng-valid">
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.name" class="form-control" placeholder="Enter Father's name">
+                                                                                </div>
+                                                                             </div>
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.designation" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.mobileNumber" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Email Id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.emailId" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.father.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                                                            
+                                                                          </form>
+                                                                       </div>
+                                                                    </div>
+                      
+                                                 <div class="panel panel-default">
+                                                                       <div class="panel-heading">Mother’s Details</div>
+                                                                       <div class="panel-body">
+                                                                          <form class="form-horizontal ng-pristine ng-valid">
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.mother.name" class="form-control" placeholder="Enter Mother's name">
+                                                                                </div>
+                                                                             </div>
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.mother.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.mother.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" class="form-control" ng-model="studentData.mother.designation" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" class="form-control" ng-model="studentData.mother.mobileNumber" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">EMail Id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input ng-model="studentData.mother.emailId" type="text" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                   <input type="text" ng-model="studentData.mother.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                                                           
+                                                                          </form>
+                                                                       </div>
+                                                                    </div>
+                      
+                                                                <div class="panel panel-default">
+                                                                       <div class="panel-heading">Local Guardian’s Details (Skip if not applicable)</div>
+                                                                       <div class="panel-body">
+                                                                          <form class="form-horizontal ng-pristine ng-valid">
+                                                                                 <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.name" class="form-control" placeholder="Enter  name">
+                                                                                </div>
+                                                                             </div>
+                                                                              <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Education</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.educational_qualification" class="form-control" placeholder="Enter educational qualification. eg: MBA">
+                                                                                </div>
+                                                                             </div>
+                                                                             <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Profession </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.profession" class="form-control" placeholder="Enter Profession.">
+                                                                                </div>
+                                                                             </div>
+                                                                                    <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Designation </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.designation" class="form-control" placeholder="Enter Designation.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Mobile Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.mobileNumber" class="form-control" placeholder="Enter Mobile number.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">EMail Id </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.emailId" class="form-control" placeholder="Enter E-Mail id.">
+                                                                                </div>
+                                                                             </div>
+                                                                                  <div class="form-group">
+                                                                                <label class="col-lg-2 control-label">Office Number </label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" ng-model="studentData.local_guardian.officeNumber" class="form-control" placeholder="Enter Office number.">
+                                                                                </div>
+                                                                             </div>
+                                                                            
+                                                                          </form>
+                                                                       </div>
+                                                                    </div>
+                       
+                          
+                                                                                                            <div class="panel panel-default ng-scope">
+                                                                                         <div class="panel-heading">Present Guardian</div>
+                                                                                         <div class="panel-body">
+                                                                                                <fieldset>
+                                                                                               
+                                                                                                  <div class="form-group">
+                                                                                                    <label class="col-sm-4 control-label">Select Present Guardian for the Student</label>
+                                                                                                    <div class="col-sm-10">
+                                                                                                       <label class="radio-inline c-radio">
+                                                                                                           <input type="radio" ng-model="studentData.student.present_guardian" checked="checked" value="Father" name="i-radio" id="inlineradio1">
+                                                                                                          <span class="fa fa-circle"></span>Father</label>
+                                                                                                       <label class="radio-inline c-radio">
+                                                                                                          <input type="radio" value="Mother"  ng-model="studentData.student.present_guardian" name="i-radio" id="inlineradio2">
+                                                                                                          <span class="fa fa-circle"></span>Mother</label>
+                                                                                                       <label class="radio-inline c-radio">
+                                                                                                          <input type="radio" value="Local Guardian"  ng-model="studentData.student.present_guardian" name="i-radio" id="inlineradio3">
+                                                                                                          <span class="fa fa-circle"></span>Local Guardian</label>
+                                                                                                    </div>
+                                                                                                 </div>
+
+                                                                                                </fieldset> 
+                                                                                         </div>
+                                                                                      </div>
+                      
+                                                             <ul class="pager">
+                                                                    <li class="previous">
+                                                                       <a ng-click="wizard.go(2)" href="#">
+                                                                          <span>← Previous</span>
+                                                                       </a>
+                                                                    </li>
+                                                                    <li class="next"><a ng-click="wizard.go(4)" href="#">Next <span>→</span></a>
+                                                                    </li>
+                                                                 </ul>
+                  </div>
+              
+                  <!-- END Wizard Step inputs -->
+                <!--END OF PARENT DETAILS -->  
+                  
+                  <!-- START Wizard Step inputs -->
+                  <div ng-show="wizard.active(4)" class="ng-hide" style="">
+                     <div class="jumbotron m0">
+                        <h3 class="mt0">Done!</h3>
+                        <small> {{ studentData }} </small>
+                        <p>Click save to save student information.</p>
+                        <p class="m0">
+                            <button class="btn btn-info" type="button" ng-click="saveStudentData(studentData)">  Save </button>
+                        </p>
+                     </div>
+                     <ul class="pager">
+                        <li class="previous">
+                           <a ng-click="wizard.go(3)" href="#">
+                              <span>← Previous</span>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- END Wizard Step inputs -->
+               </div>
+            
+                         
+                   </div>
+               </div>
+          
+                   
+            </div>
+                   </div>
+                   
+                   
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

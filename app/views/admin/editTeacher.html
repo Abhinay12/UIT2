@@ -1,0 +1,115 @@
+<div ng-controller="editTeacher">
+    <div class="col-sm-8">
+      <!-- START panel-->
+  
+         <div class="panel-heading">Edit teacher Info here</div>
+         <div class="panel-body">
+            <form class="form-horizontal ng-pristine ng-valid">
+                   
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Name</label>
+                  <div class="col-lg-7">
+                      <input ng-focus="" ng-model="selectedTeacher.teacherName" type="text" class="form-control" placeholder="Eg: John Doe">
+                  </div>
+               </div>
+			   
+			   
+                
+				   <div class="form-group">
+                     <label class="col-lg-2 control-label">Date of birth</label>
+                    <div class="col-lg-7">
+                    <p class="input-group">
+                 <input type="text" ng-model="selectedTeacher.DOB | cmdate:'dd-MM-yyyy'" readonly  id="dob"  placeholder="dd-mm-yyyy" data-ng-options="datepickerOptions" my-date-picker class="form-control" />
+                        </p>
+                        </div>
+                </div>
+				
+				
+				<div class="form-group">
+                  <label class="col-lg-2 control-label">Emp code</label>
+                  <div class="col-lg-7">
+                      <input ng-focus="" ng-model="selectedTeacher.empCode" type="text" class="form-control" placeholder="Eg: 2014/007">
+                    </div>
+               </div>
+				
+				
+				
+				
+				<div class="form-group">
+                    <label class="col-lg-2 control-label">Date Of Joining</label>
+                  <div class="col-lg-7">
+                        <input ng-focus="" ng-model="selectedTeacher.doj | cmdate:'dd-MM-yyyy'" type="text" class="form-control" placeholder="Eg:22-05-2014">
+                    </div>
+               </div>
+                      
+				
+				
+				<div class="form-group">
+                  <label class="col-lg-2 control-label">Phone No</label>
+                  <div class="col-lg-7">
+                      <input ng-model="selectedTeacher.phoneNo" type="text" class="form-control" placeholder="9895000001">
+                  </div>
+               </div>
+			   
+			   
+			   
+			   <div class="form-group">
+                  <label class="col-lg-2 control-label">Post</label>
+                  <div class="col-lg-7">
+                      <input ng-focus="" ng-model="selectedTeacher.post" type="text" class="form-control" placeholder="Eg: teacher">
+		
+                  </div>
+               </div>
+			   
+			   
+			   <div class="form-group">
+                  <label class="col-lg-2 control-label">Qualification</label>
+                  <div class="col-lg-7">
+                      <input ng-focus="" ng-model="selectedTeacher.quali" type="text" class="form-control" placeholder="Eg: MBA">
+                  </div>
+               </div>
+			   
+			   
+				
+               <div class="form-group">
+                  <label class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-7">
+                      <input ng-model="selectedTeacher.teacherEmailId" type="email" class="form-control" placeholder="eg: teacher@example.com">
+                  </div>
+               </div>
+                
+				
+				
+				   <div class="form-group">
+                     <label class="col-lg-2 control-label">Address</label>
+                    <div class="col-lg-7">
+                    <textarea class="form-control" ng-model="selectedTeacher.addr" placeholder="Enter full Address "></textarea>
+                     </div>
+                     </div>
+                    </fieldset>
+                                                                  
+                
+                
+              <!--    <div class="form-group">
+                  <label class="col-lg-2 control-label">Username</label>
+                  <div class="col-lg-7">
+                      <input ng-model="selectedTeacher.username" type="text" class="form-control" placeholder="enter username for teacher login">
+                  </div>
+               </div>   -->
+                
+                
+                
+               <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-info" type="submit" ng-click="saveTeacher(selectedTeacher)" > Update teacher details </button>
+                  </div>
+               </div>
+            </form>
+         </div>
+    
+   
+      <!-- END panel-->
+   </div>
+      <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+    
+</div>
